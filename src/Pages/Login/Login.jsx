@@ -12,6 +12,7 @@ const Login = () => {
     sweetLoginAlert,
     LoginByGitHub,
     LoginByGoogle,
+    themeData,
   } = useContext(AuthData);
 
   const location = useLocation();
@@ -38,8 +39,7 @@ const Login = () => {
     fnc()
       .then((currentUser) => {
         sweetLoginAlert(
-          `Welcome "${currentUser?.user?.displayName.toUpperCase()}"`,
-
+          `Welcome "${currentUser?.user?.displayName?.toUpperCase()}"`,
           1500
         );
         setTimeout(() => {
@@ -71,7 +71,7 @@ const Login = () => {
     loginUser(Email, password)
       .then((currentUser) => {
         sweetLoginAlert(
-          `Welcome Back "${currentUser?.user?.displayName.toUpperCase()}"`,
+          `Welcome Back "${currentUser?.user?.displayName?.toUpperCase()}"`,
           1500
         );
         setTimeout(() => {
@@ -108,15 +108,21 @@ const Login = () => {
     <div
       data-aos="fade-up"
       data-aos-duration="600"
-      className="lg:h-[calc(100vh-68px)] overflow-x-hidden md:h-[calc(100vh-60px)] h-full p-3 w-full flex justify-center items-center"
+      className="lg:h-[calc(100vh-68px)] font-Akshar overflow-x-hidden md:h-[calc(100vh-60px)] h-full p-3 w-full flex justify-center items-center"
     >
-      <div className="w-full  max-w-md p-8 space-y-3 lg:shadow-2xl border-[1px] border-purple-200 rounded-xl dark:bg-gray-50 dark:text-gray-800">
+      <div
+        className="w-full lg:w-[700px] p-8 space-y-3 border-[1px] border-purple-200 rounded-[2px] dark:text-gray-800"
+        style={{
+          backgroundColor: `${themeData ? "" : "#fae8d3"}`,
+          color: `${!themeData ? "" : "#a6adbb"}`,
+        }}
+      >
         <h1 className="text-2xl font-bold text-center">Login</h1>
 
         {/* ................. from start here .................. */}
         <form onSubmit={handleSubmit(fromSubmit)} className="space-y-6 ">
           <div className="space-y-1 text-sm">
-            <label className="block dark:text-gray-600">Email</label>
+            <label className="block ">Email</label>
             <input
               {...register("Email", {
                 required: true,
@@ -124,7 +130,7 @@ const Login = () => {
               })}
               type="text"
               placeholder="Email"
-              className="outline-none w-full px-4 py-3 rounded-md border-gray-300 border-[1px] dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+              className="outline-none w-full px-4 py-3 !rounded-[2px] border-gray-300 border-[1px] bg-[#fff4e4] "
             />
             {errors?.Email?.type === "required" && (
               <p className="text-red-500 dark:text-red-400">
@@ -132,13 +138,11 @@ const Login = () => {
               </p>
             )}
             {errors?.Email?.type === "pattern" && (
-              <p className="text-red-500 dark:text-red-400">
-                Please enter a valid email!
-              </p>
+              <p className="text-red-500 ">Please enter a valid email!</p>
             )}
           </div>
           <div className="relative space-y-1 text-sm">
-            <label htmlFor="password" className="block dark:text-gray-600">
+            <label htmlFor="password" className="block ">
               Password
             </label>
             <input
@@ -149,7 +153,7 @@ const Login = () => {
               type={pSH ? "password" : "text"}
               name="password"
               placeholder="Password"
-              className="outline-none w-full px-4 py-3 rounded-md border-gray-300 border-[1px] dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+              className="outline-none w-full px-4 py-3 !rounded-[2px] border-gray-300 border-[1px] bg-[#fff4e4] "
             />
             <span
               onClick={() => setPSH(!pSH)}
@@ -167,7 +171,7 @@ const Login = () => {
                 Password must be at least 8 characters!
               </p>
             )}
-            <div className="flex justify-end text-xs dark:text-gray-600">
+            <div className="flex justify-end text-xs ">
               <a rel="noopener noreferrer" href="#">
                 Forgot Password?
               </a>
@@ -176,16 +180,14 @@ const Login = () => {
           <input
             type="submit"
             value="Login"
-            className="w-full btn p-3 text-center rounded-sm text-white bg-cmnBG"
+            className="w-full btn p-3 text-center text-lg !font-medium rounded-[2px] text-white bg-cRed"
           />
         </form>
         {/* ................. from end here .................. */}
 
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
-          <p className="px-3 text-sm dark:text-gray-600">
-            Login with social accounts
-          </p>
+          <p className="px-3 text-sm ">Login with social accounts</p>
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
         </div>
         <div className="flex justify-center space-x-4">
@@ -217,7 +219,7 @@ const Login = () => {
             </svg>
           </button>
         </div>
-        <p className="text-xs text-center sm:px-6 dark:text-gray-600">
+        <p className="text-lg text-center sm:px-6 ">
           Don't have an account?
           <Link className="hover:underline" to={"/register"}>
             {" "}

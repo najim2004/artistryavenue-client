@@ -70,7 +70,7 @@ const Navbar = () => {
     };
   }, []);
   return (
-    <div className=" !z-20 sticky top-0  py-4  h-full" style={{ ...bgColor }}>
+    <div className="!font-Akshar !z-20 sticky top-0  py-4  h-full" style={{ ...bgColor }}>
       <div className="max-w-[1450px] flex justify-between items-center mx-auto">
         <div className="">
           <Link

@@ -6,7 +6,8 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { AuthData } from "../../Context/AuthProvider";
 
 const Register = () => {
-  const { user, loading, registerUser, sweetAlert } = useContext(AuthData);
+  const { user, loading, registerUser, sweetAlert, themeData } =
+    useContext(AuthData);
   const location = useLocation();
   const [pSH, setPSH] = useState(true);
   const navigator = useNavigate();
@@ -81,14 +82,20 @@ const Register = () => {
   };
   return (
     <div data-aos="fade-up" data-aos-duration="600" className="">
-      <div className="lg:h-[calc(100vh-68px)] md:h-[calc(100vh-60px)] h-full  p-3 w-full flex items-center justify-center">
-        <div className="w-full lg:shadow-2xl max-w-md p-8 space-y-3  border-[1px] border-purple-200 rounded-xl dark:bg-gray-50 dark:text-gray-800">
+      <div className="lg:h-[calc(100vh-68px)] font-Akshar md:h-[calc(100vh-60px)] h-full  p-3 w-full flex items-center justify-center">
+        <div
+          className="w-full lg:w-[700px]  p-8 space-y-3  border-[1px] border-[#fae8d3] rounded-[2px]"
+          style={{
+            backgroundColor: `${themeData ? "" : "#fae8d3"}`,
+            color: `${!themeData ? "" : "#a6adbb"}`,
+          }}
+        >
           <h1 className="text-2xl font-bold text-center">Register Now</h1>
 
           {/* ................. from start here .................. */}
           <form onSubmit={handleSubmit(fromSubmit)} className="space-y-6">
             <div className="space-y-1 text-sm">
-              <label className="block dark:text-gray-600">Full Name</label>
+              <label className="block ">Full Name</label>
               <input
                 name="Name"
                 {...register("Name", {
@@ -96,7 +103,7 @@ const Register = () => {
                 })}
                 type="text"
                 placeholder="Full Name"
-                className="outline-none w-full px-4 py-3 rounded-md border-gray-300 border-[1px] dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+                className="outline-none w-full px-4 py-3 rounded-sm border-gray-300 border-[1px] dark:bg-gray-50 bg-[#fff4e4] "
               />
               {errors?.Name?.type === "required" && (
                 <p className="text-red-500 dark:text-red-400">
@@ -105,17 +112,17 @@ const Register = () => {
               )}
             </div>
             <div className="space-y-1 text-sm">
-              <label className="block dark:text-gray-600">Photo Url</label>
+              <label className="block ">Photo Url</label>
               <input
                 name="photo"
                 {...register("Photo")}
                 type="text"
                 placeholder="Photo"
-                className="outline-none w-full px-4 py-3 rounded-md border-gray-300 border-[1px] dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+                className="outline-none w-full px-4 py-3 rounded-sm border-gray-300 border-[1px] dark:bg-gray-50 bg-[#fff4e4] "
               />
             </div>
             <div className="space-y-1 text-sm">
-              <label className="block dark:text-gray-600">Email</label>
+              <label className="block ">Email</label>
               <input
                 name="email"
                 {...register("Email", {
@@ -124,7 +131,7 @@ const Register = () => {
                 })}
                 type="text"
                 placeholder="Email"
-                className="outline-none w-full px-4 py-3 rounded-md border-gray-300 border-[1px] dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+                className="outline-none w-full px-4 py-3 rounded-sm border-gray-300 border-[1px] dark:bg-gray-50 bg-[#fff4e4] "
               />
               {errors?.Email?.type === "required" && (
                 <p className="text-red-500 dark:text-red-400">
@@ -138,7 +145,7 @@ const Register = () => {
               )}
             </div>
             <div className="relative space-y-1 text-sm">
-              <label htmlFor="password" className="block dark:text-gray-600">
+              <label htmlFor="password" className="block ">
                 Password
               </label>
               <input
@@ -150,7 +157,7 @@ const Register = () => {
                 type={pSH ? "password" : "text"}
                 name="password"
                 placeholder="Password"
-                className="outline-none w-full px-4 py-3 rounded-md border-gray-300 border-[1px] dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+                className="outline-none w-full px-4 py-3 rounded-sm border-gray-300 border-[1px] dark:bg-gray-50 bg-[#fff4e4]"
               />
               <span
                 onClick={() => setPSH(!pSH)}
@@ -178,11 +185,11 @@ const Register = () => {
             <input
               type="submit"
               value="Register"
-              className="w-full btn p-3 text-center rounded-sm dark:text-gray-50 bg-cmnBG"
+              className="w-full btn p-3 text-center rounded-sm dark:text-gray-50 bg-cRed"
             />
           </form>
           {/* ................. from end here .................. */}
-          <p className="text-xs text-center sm:px-6 dark:text-gray-600">
+          <p className="text-lg text-center sm:px-6 ">
             Already have an account?
             <Link className="hover:underline" to={"/login"}>
               {" "}

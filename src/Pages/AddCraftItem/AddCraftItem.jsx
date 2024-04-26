@@ -3,12 +3,39 @@ import { AuthData } from "../../Context/AuthProvider";
 
 const AddCraftItem = () => {
   const { themeData } = useContext(AuthData);
+  const handleAddCraft = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = {
+      user_name: form.user_name.value,
+      user_email: form.user_email.value,
+      item_name: form.item_name.value,
+      subcategory_Name: form.subcategory_Name.value,
+      description: form.description.value,
+      image: form.image.value,
+      processing_time: form.processing_time.value,
+      Price: form.Price.value,
+      rating: form.rating.value,
+      customization: form.customization.value,
+      stockStatus: form.stockStatus.value,
+    };
+    console.log(formData);
+  };
   return (
-    <div className="max-w-[1050px] mx-3 font-Akshar border-[1px] border-[#fae8d3] p-10 rounded-[8px] lg:mx-auto" style={{backgroundColor:`${themeData?'':'#fae8d3'}`}}>
+    <div
+      className="max-w-[1050px] mx-3 font-Akshar border-[1px] border-[#fae8d3] p-10 rounded-[8px] lg:mx-auto"
+      style={{ backgroundColor: `${themeData ? "" : "#fae8d3"}` }}
+    >
       <div className="">
-        <h1 className="text-2xl font-bold text-center mb-5">Add Your Craft Item</h1>
+        <h1 className="text-2xl font-bold text-center mb-5">
+          Add Your Craft Item
+        </h1>
         <hr className="mb-5 border-t-[1px] border-cRed w-full" />
-        <form className="grid grid-rows-1 lg:grid-cols-2 gap-6">
+
+        <form
+          onSubmit={handleAddCraft}
+          className="grid grid-rows-1 lg:grid-cols-2 gap-6"
+        >
           <div className="">
             <label className="text-xl mb-4 font-semibold">Your Name</label>
             <br />
