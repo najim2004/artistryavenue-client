@@ -20,6 +20,7 @@ const AuthProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [reviewData, setReviewData] = useState([]);
   const [dataLoading, setDataLoading] = useState(true);
+  const [themeData, setThemeData] = useState(false);
 
   const registerUser = (email, password) => {
     setLoading(true);
@@ -106,6 +107,8 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     dataLoading,
+    themeData,
+    setThemeData,
     LoginByGoogle,
     LoginByGitHub,
     registerUser,
