@@ -35,8 +35,10 @@ const Navbar = () => {
     const html = document.querySelector("html");
     if (theme) {
       html.setAttribute("data-theme", "dark");
+      html.classList.remove("bg-[#fff4e4]");
     } else {
       html.setAttribute("data-theme", "light");
+      html.classList.add("bg-[#fff4e4]");
     }
   }, [getTheme, isChecked]);
 
@@ -70,7 +72,10 @@ const Navbar = () => {
     };
   }, []);
   return (
-    <div className="!font-Akshar !z-20 sticky top-0  py-4  h-full" style={{ ...bgColor }}>
+    <div
+      className="!font-Akshar !z-20 sticky top-0  py-4  h-full"
+      style={{ ...bgColor }}
+    >
       <div className="max-w-[1450px] flex justify-between items-center mx-auto">
         <div className="">
           <Link
@@ -172,7 +177,7 @@ const Navbar = () => {
               </label>
             </div>
           </div>
-          <div className="dropdown lg:hidden  !z-20" >
+          <div className="dropdown lg:hidden  !z-20">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -192,7 +197,6 @@ const Navbar = () => {
             <ul
               tabIndex={0}
               className="menu menu-sm right-0 dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-              
             >
               {menu}
               {user ? (

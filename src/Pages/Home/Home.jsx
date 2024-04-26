@@ -6,12 +6,8 @@ const Home = () => {
   return (
     <div>
       <Slider></Slider>
-      <div className="mt-[100px] grid grid-cols-4">
-        <CraftCategories></CraftCategories>
-        <div className="col-span-3">
-          <CraftItems></CraftItems>
-        </div>
-      </div>
+      <CraftItems></CraftItems>
+      <CraftCategories></CraftCategories>
     </div>
   );
 };

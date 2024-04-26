@@ -17,7 +17,7 @@ import { AuthData } from "../../../Context/AuthProvider";
 const Slider = () => {
   const { themeData } = useContext(AuthData);
   return (
-    <div className="h-screen -mt-[80px]  md:-mt-[80px] lg:-mt-[72px] !z-0">
+    <div className="h-screen -mt-[82px] !z-0">
       <Swiper
         navigation={true}
         effect={"fade"}
