@@ -89,7 +89,7 @@ const Slider = () => {
           >
             <div className="max-w-[1450px] items-center lg:items-start lg:pl-16 md:items-start flex justify-center h-full flex-col mx-auto">
               <h3 className="font-Akshar text-[46px] text-center lg:text-start md:text-start leading-[60px] font-bold">
-                Oil Painting
+                Watercolour Painting
                 <br />
                 Art Collections
               </h3>
@@ -97,8 +97,8 @@ const Slider = () => {
                 Facilisis leo vel fringilla est ullamcorper eget nulla. Mattis
                 vulputate enim nulla aliquet porttitor lacus luctus.
               </p>
-              <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white mt-[60px] font-semibold w-[200px]">
-                Explore Oil Painting <FaArrowTrendUp />
+              <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white mt-[60px] font-semibold w-[270px]">
+                Explore Watercolour Painting <FaArrowTrendUp />
               </button>
             </div>
           </div>
@@ -113,7 +113,7 @@ const Slider = () => {
           >
             <div className="max-w-[1450px] items-center lg:items-start lg:pl-16 md:items-start flex justify-center h-full flex-col mx-auto">
               <h3 className="font-Akshar text-[46px] text-center lg:text-start md:text-start leading-[60px] font-bold">
-                Oil Painting
+                Watercolour Painting
                 <br />
                 Art Collections
               </h3>
@@ -122,8 +122,8 @@ const Slider = () => {
                 iaculis. Nulla pellentesque dignissim enim sit amet venenatis
                 urna cursus eget. Nibh cras pulvinar mattis nunc.
               </p>
-              <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white mt-[60px] font-semibold w-[200px]">
-                Explore Oil Painting <FaArrowTrendUp />
+              <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white mt-[60px] font-semibold w-[270px]">
+                Explore Watercolour Painting <FaArrowTrendUp />
               </button>
             </div>
           </div>
@@ -138,7 +138,7 @@ const Slider = () => {
           >
             <div className="max-w-[1450px] items-center lg:items-start lg:pl-16 md:items-start flex justify-center h-full flex-col mx-auto">
               <h3 className="font-Akshar text-[46px] text-center lg:text-start md:text-start leading-[60px] font-bold">
-                Oil Painting
+                Charcoal Sketching
                 <br />
                 Art Collections
               </h3>
@@ -147,8 +147,8 @@ const Slider = () => {
                 lectus. Eleifend mi in nulla posuere sollicitudin aliquam.
                 Turpis egestas integer eget aliquet nibh.
               </p>
-              <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white mt-[60px] font-semibold w-[200px]">
-                Explore Oil Painting <FaArrowTrendUp />
+              <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white mt-[60px] font-semibold w-[270px]">
+                Explore Charcoal Sketching <FaArrowTrendUp />
               </button>
             </div>
           </div>

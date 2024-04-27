@@ -3,6 +3,7 @@ import { AuthData } from "../../Context/AuthProvider";
 
 const AddCraftItem = () => {
   const { themeData } = useContext(AuthData);
+
   const handleAddCraft = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -20,6 +21,18 @@ const AddCraftItem = () => {
       stockStatus: form.stockStatus.value,
     };
     console.log(formData);
+    fetch("http://localhost:5000/all_art_and_craft", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        form.reset();
+      });
   };
   return (
     <div

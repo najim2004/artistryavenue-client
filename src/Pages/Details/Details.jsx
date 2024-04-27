@@ -1,0 +1,93 @@
+import { useContext, useEffect, useState } from "react";
+import { AuthData } from "../../Context/AuthProvider";
+import { Link, useParams } from "react-router-dom";
+import headerbg from "../../assets/headerbg.png";
+import { BsCurrencyDollar } from "react-icons/bs";
+import { FaStar } from "react-icons/fa6";
+const Details = () => {
+  const { data, themeData } = useContext(AuthData);
+  const { id } = useParams();
+  const [findData, setFindData] = useState({});
+
+  useEffect(() => {
+    setFindData(data?.find((item) => item._id === id));
+  }, [data, id]);
+  return (
+    <div>
+      <div
+        className="bg-no-repeat bg-cover h-[300px] bg-right lg:h-[400px] -mt-[72px]"
+        style={{ backgroundImage: `url(${headerbg})` }}
+      >
+        <div
+          className={`!bg-opacity-50  bg-${
+            !themeData ? "white" : "black"
+          } w-full h-full`}
+        >
+          <div className="max-w-[1450px]  h-full flex flex-col justify-center mx-auto">
+            <h3 className="font-Akshar ml-6  lg:ml-0 text-start font-medium text-xl lg:text-[40px]">
+              {findData?.item_name}
+            </h3>
+            <p className="flex ml-6 lg:ml-0 text-lg flex-wrap mt-5">
+              <Link className="hover:text-cRed hover:underline" to={"/"}>
+                Home
+              </Link>
+              {">"}
+              <Link className="hover:text-cRed hover:underline">
+                {findData?.subcategory_Name}
+              </Link>
+              {">"}
+              {findData?.item_name}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="mt-12 lg:mt-[100px] px-3 lg:px-0 max-w-[1450px] mx-auto grid grid-cols-1 gap-6 lg:grid-cols-4">
+        <div className="hidden lg:inline-block">
+          <h3 className="text-2xl font-semibold font-Akshar">Categories</h3>
+          <ul className="list-disc ml-8 mt-8 *:mb-6 ">
+            <li className="hover:text-cRed hover:underline">Category1</li>
+            <li>Category1</li>
+            <li>Category1</li>
+            <li>Category1</li>
+            <li>Category1</li>
+            <li>Category1</li>
+          </ul>
+        </div>
+        <div className="col-span-3 grid grid-cols-1 gap-16 lg:grid-cols-2">
+          <img
+            className="h-[400px] lg:h-[600px] bg-gray-300 object-cover object-center"
+            src={findData?.image}
+            alt=""
+          />
+          <div className="">
+            <h3 className="text-3xl lg:text-4xl font-Akshar font-semibold">
+              {findData?.item_name}
+            </h3>
+            <h3 className="flex items-center font-Akshar text-2xl lg:text-3xl font-medium mt-4 lg:mt-8">
+              <BsCurrencyDollar />
+              {findData?.Price}
+            </h3>
+            <p className="flex mt-4 lg:mt-8 font-semibold font-Akshar text-2xl lg:text-3xl items-center gap-2">
+              <FaStar className="text-yellow-400" />
+              {findData?.rating}
+            </p>
+            <p className="flex mt-4 lg:mt-8 font-Akshar text-lg lg:text-xl items-center gap-2">
+              <span className="font-semibold">Category: </span>
+              {findData?.subcategory_Name}
+            </p>
+            <p className="flex mt-4 lg:mt-8 font-Akshar text-lg lg:text-xl items-center gap-2">
+              <span className="font-semibold">Posted By: </span>
+              {findData?.user_name}
+            </p>
+            <p className="lg:mt-8 mt-4 font-Akshar text-lg lg:text-xl items-center gap-2">
+              <span className="font-semibold">Short Description: </span>
+              {findData?.description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Details;

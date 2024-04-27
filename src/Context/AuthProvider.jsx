@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetch("/Json/data.json")
+    fetch("http://localhost:5000/all_art_and_craft")
       .then((response) => response.json())
       .then((data) => {
         setData(data);
@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    fetch("/Json/review.json")
+    fetch("http://localhost:5000/all_art_and_craft")
       .then((response) => response.json())
       .then((data) => {
         setReviewData(data);

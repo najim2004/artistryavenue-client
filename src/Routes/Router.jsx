@@ -6,6 +6,7 @@ import AllArtItems from "../Pages/AllArtItems/AllArtItems";
 import AddCraftItem from "../Pages/AddCraftItem/AddCraftItem";
 import MyCraftList from "../Pages/MyCraftList/MyCraftList";
 import Home from "../Pages/Home/Home";
+import Details from "../Pages/Details/Details";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/my_art_&_craft_list",
         element: <MyCraftList></MyCraftList>,
+      },
+      {
+        path: "/details/:id",
+        element: <Details></Details>,
       },
     ],
   },
