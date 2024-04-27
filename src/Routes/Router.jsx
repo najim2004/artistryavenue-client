@@ -7,11 +7,15 @@ import AddCraftItem from "../Pages/AddCraftItem/AddCraftItem";
 import MyCraftList from "../Pages/MyCraftList/MyCraftList";
 import Home from "../Pages/Home/Home";
 import Details from "../Pages/Details/Details";
+import CraftUpdate from "../Pages/CraftUpdate/CraftUpdate";
+import PrivateRoute from "./PrivateRoute";
+import Error404 from "../Pages/404/Error404";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <Error404></Error404>,
     children: [
       {
         path: "/",
@@ -31,15 +35,35 @@ const router = createBrowserRouter([
       },
       {
         path: "/add_craft_item",
-        element: <AddCraftItem></AddCraftItem>,
+        element: (
+          <PrivateRoute>
+            <AddCraftItem></AddCraftItem>,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my_art_&_craft_list",
-        element: <MyCraftList></MyCraftList>,
+        element: (
+          <PrivateRoute>
+            <MyCraftList></MyCraftList>,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/details/:id",
-        element: <Details></Details>,
+        element: (
+          <PrivateRoute>
+            <Details></Details>,
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/update_details/:id",
+        element: (
+          <PrivateRoute>
+            <CraftUpdate></CraftUpdate>
+          </PrivateRoute>
+        ),
       },
     ],
   },

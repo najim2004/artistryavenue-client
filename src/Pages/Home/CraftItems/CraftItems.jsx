@@ -27,12 +27,13 @@ const CraftItems = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6 lg:gap-12">
         {data?.map((item) => (
           <div key={item?._id} className="">
-            <div className="w-full h-[450px] border-[3px] border-black p-4 rounded-sm">
+            <div className="w-full relative h-[450px] border-[3px] border-black p-4 rounded-sm">
               <img
                 className="w-full h-full bg-gray-200"
                 src={item?.image}
                 alt=""
               />
+              <p className="absolute top-5 right-0 text-white bg-opacity-80 bg-cRed p-2">{item?.stockStatus}</p>
             </div>
             <div className="px-6">
               <h3 className="text-2xl font-Akshar font-semibold mt-3">

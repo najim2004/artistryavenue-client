@@ -111,9 +111,9 @@ const Login = () => {
       className="lg:h-[calc(100vh-68px)] font-Akshar overflow-x-hidden md:h-[calc(100vh-60px)] h-full p-3 w-full flex justify-center items-center"
     >
       <div
-        className="w-full lg:w-[700px] p-8 space-y-3 border-[1px] border-purple-200 rounded-[2px] dark:text-gray-800"
+        className="w-full lg:w-[700px] p-8 space-y-3 rounded-[2px] dark:text-gray-800"
         style={{
-          backgroundColor: `${themeData ? "" : "#fae8d3"}`,
+          backgroundColor: `${themeData ? "#606060c4" : "#fae8d3"}`,
           color: `${!themeData ? "" : "#a6adbb"}`,
         }}
       >

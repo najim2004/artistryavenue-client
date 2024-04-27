@@ -1,9 +1,17 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthData } from "../../Context/AuthProvider";
-const AddCraftItem = () => {
-  const { themeData, user, sweetAlert } = useContext(AuthData);
+import { useParams } from "react-router-dom";
 
-  const handleAddCraft = (e) => {
+const CraftUpdate = () => {
+  const { themeData, data, sweetAlert } = useContext(AuthData);
+  const { id } = useParams();
+  const [oldData, setOldData] = useState({});
+
+  useEffect(() => {
+    setOldData(data.find((item) => item._id === id));
+  }, [data, id]);
+
+  const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = {
@@ -20,8 +28,8 @@ const AddCraftItem = () => {
       stockStatus: form.stockStatus.value,
     };
     console.log(formData);
-    fetch("http://localhost:5000/all_art_and_craft", {
-      method: "POST",
+    fetch(`http://localhost:5000/all_art_and_craft/${id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -29,24 +37,26 @@ const AddCraftItem = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        sweetAlert("Successfully Added", "success", false, false, 1500);
-        console.log(data);
-        form.reset();
+        if (data.modifiedCount > 0) {
+          sweetAlert("Successfully Updated", "success", false, false, 1500);
+        } else {
+          sweetAlert("No Change Detect!", "error", false, false, 1500);
+        }
       });
   };
   return (
     <div
-      className="max-w-[1050px] mx-3 font-Akshar p-3 lg:p-10 rounded-[8px] lg:mx-auto"
+      className="max-w-[1050px] mx-3 font-Akshar bgr-[#606060c4] p-3 lg:p-10 rounded-[8px] lg:mx-auto"
       style={{ backgroundColor: `${themeData ? "#606060c4" : "#fae8d3"}` }}
     >
       <div className="">
         <h1 className="text-2xl font-bold text-center mb-5">
-          {location?.state ? "Update Your Craft Item" : "Add Your Craft Item"}
+          Update Your Craft Item
         </h1>
         <hr className="mb-5 border-t-[1px] border-cRed w-full" />
 
         <form
-          onSubmit={handleAddCraft}
+          onSubmit={handleUpdate}
           className="grid grid-rows-1 lg:grid-cols-2 gap-6"
         >
           <div className="">
@@ -56,11 +66,11 @@ const AddCraftItem = () => {
               className="h-12 p-[11px] mt-4 w-full bg-white rounded-[5px]"
               type="text"
               name="user_name"
-              defaultValue={user?.displayName}
+              disabled
+              defaultValue={oldData?.user_name}
               placeholder="Enter your name"
             />
           </div>
-
           <div className="">
             <label className="text-xl mb-4 font-semibold">Your Email</label>
             <br />
@@ -68,7 +78,8 @@ const AddCraftItem = () => {
               className="h-12 p-[11px] mt-4 w-full bg-white rounded-[5px]"
               type="email"
               name="user_email"
-              defaultValue={user?.email}
+              defaultValue={oldData?.user_email}
+              disabled
               placeholder="Enter email name"
             />
           </div>
@@ -81,6 +92,7 @@ const AddCraftItem = () => {
               className="h-12 p-[11px] mt-4 w-full bg-white rounded-[5px]"
               type="text"
               name="item_name"
+              defaultValue={oldData?.item_name}
               placeholder="Enter craft or painting name"
             />
           </div>
@@ -88,6 +100,7 @@ const AddCraftItem = () => {
             <label className="text-xl mb-4 font-semibold">Image Url</label>
             <br />
             <input
+              defaultValue={oldData?.image}
               className="h-12 w-full p-[11px] mt-4 bg-white rounded-[5px]"
               type="text"
               name="image"
@@ -100,6 +113,7 @@ const AddCraftItem = () => {
             </label>
             <br />
             <textarea
+              defaultValue={oldData?.description}
               placeholder="Short description"
               className="h-[150px] w-full p-[11px] mt-4 bg-white rounded-[5px]"
               name="description"
@@ -115,6 +129,7 @@ const AddCraftItem = () => {
             <br />
 
             <select
+              defaultValue={oldData?.subcategory_Name}
               className="h-12 w-full p-[11px] mt-4 bg-white rounded-[5px]"
               name="subcategory_Name"
               id=""
@@ -134,6 +149,7 @@ const AddCraftItem = () => {
             <label className="text-xl mb-4 font-semibold">Customization</label>
             <br />
             <select
+              value={oldData?.customization}
               className="h-12 w-full p-[11px] mt-4 bg-white rounded-[5px]"
               name="customization"
               id=""
@@ -148,6 +164,7 @@ const AddCraftItem = () => {
             </label>
             <br />
             <input
+              defaultValue={oldData?.processing_time}
               className="h-12 w-full p-[11px] mt-4 bg-white rounded-[5px]"
               type="text"
               name="processing_time"
@@ -158,6 +175,7 @@ const AddCraftItem = () => {
             <label className="text-xl mb-4 font-semibold">Price</label>
             <br />
             <input
+              defaultValue={oldData?.Price}
               className="h-12 w-full p-[11px] mt-4 bg-white rounded-[5px]"
               type="text"
               name="Price"
@@ -168,6 +186,7 @@ const AddCraftItem = () => {
             <label className="text-xl mb-4 font-semibold">Rating</label>
             <br />
             <input
+              defaultValue={oldData?.rating}
               className="h-12 w-full p-[11px] mt-4 bg-white rounded-[5px]"
               type="text"
               name="rating"
@@ -179,6 +198,7 @@ const AddCraftItem = () => {
             <label className="text-xl mb-4 font-semibold">Stock Status</label>
             <br />
             <input
+              defaultValue={oldData?.stockStatus}
               className="h-12 w-full p-[11px] mt-4 bg-white rounded-[5px]"
               type="text"
               name="stockStatus"
@@ -190,7 +210,7 @@ const AddCraftItem = () => {
             className="h-12 lg:col-span-2 btn btn-sm !font-normal font-rancho text-2xl text-white bg-cRed w-full  rounded-[5px]"
             type="submit"
             name=""
-            value="Add"
+            value="Save"
           />
         </form>
       </div>
@@ -198,4 +218,4 @@ const AddCraftItem = () => {
   );
 };
 
-export default AddCraftItem;
+export default CraftUpdate;

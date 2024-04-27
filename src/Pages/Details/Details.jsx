@@ -56,7 +56,7 @@ const Details = () => {
         </div>
         <div className="col-span-3 grid grid-cols-1 gap-16 lg:grid-cols-2">
           <img
-            className="h-[400px] lg:h-[600px] bg-gray-300 object-cover object-center"
+            className="h-[400px] mx-auto lg:h-[600px] bg-gray-300 object-cover object-center"
             src={findData?.image}
             alt=""
           />

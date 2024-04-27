@@ -84,9 +84,9 @@ const Register = () => {
     <div data-aos="fade-up" data-aos-duration="600" className="">
       <div className="lg:h-[calc(100vh-68px)] font-Akshar md:h-[calc(100vh-60px)] h-full  p-3 w-full flex items-center justify-center">
         <div
-          className="w-full lg:w-[700px]  p-8 space-y-3  border-[1px] border-[#fae8d3] rounded-[2px]"
+          className="w-full lg:w-[700px]  p-8 space-y-3 rounded-[2px]"
           style={{
-            backgroundColor: `${themeData ? "" : "#fae8d3"}`,
+            backgroundColor: `${themeData ? "#606060c4" : "#fae8d3"}`,
             color: `${!themeData ? "" : "#a6adbb"}`,
           }}
         >

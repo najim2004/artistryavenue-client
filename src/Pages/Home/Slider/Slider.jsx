@@ -37,13 +37,13 @@ const Slider = () => {
               backgroundColor: `${!themeData ? "#FFF7E8" : "#1d232a"}`,
             }}
           >
-            <div className="max-w-[1450px] items-center lg:items-start lg:pl-16 md:items-start flex justify-center h-full flex-col mx-auto">
-              <h3 className="font-Akshar text-[46px] text-center lg:text-start md:text-start leading-[60px] font-bold">
+            <div className="max-w-[1450px] items-center lg:items-start lg:pl-16  flex justify-center h-full flex-col mx-auto">
+              <h3 className="font-Akshar text-[46px] text-center lg:text-start  leading-[60px] font-bold">
                 Landscape Painting
                 <br />
                 Art Collections
               </h3>
-              <p className="mt-[50px] max-w-[400px] leading-8 text-center lg:text-start md:text-start">
+              <p className="mt-[50px] max-w-[400px] leading-8 text-center lg:text-start ">
                 Commodo ullamcorper a lacus vestibulum sed arcu non odio
                 euismod. Suspendisse interdum consectetur libero id faucibus.
                 Non diam phasellus vestibulum lorem sed.
@@ -62,13 +62,13 @@ const Slider = () => {
               backgroundColor: `${!themeData ? "#FFEFED" : "#1d232a"}`,
             }}
           >
-            <div className="max-w-[1450px] items-center lg:items-start lg:pl-16 md:items-start flex justify-center h-full  flex-col mx-auto">
-              <h3 className="font-Akshar text-[46px] text-center lg:text-start md:text-start leading-[60px] font-bold">
+            <div className="max-w-[1450px] items-center lg:items-start lg:pl-16  flex justify-center h-full  flex-col mx-auto">
+              <h3 className="font-Akshar text-[46px] text-center lg:text-start  leading-[60px] font-bold">
                 Oil Painting
                 <br />
                 Art Collections
               </h3>
-              <p className="mt-[50px] max-w-[400px] leading-8 text-center lg:text-start md:text-start">
+              <p className="mt-[50px] max-w-[400px] leading-8 text-center lg:text-start ">
                 Aenean et tortor at risus viverra. Velit laoreet id donec
                 ultrices. Malesuada fames ac turpis egestas maecenas pharetra
                 convallis posuere.
@@ -87,13 +87,13 @@ const Slider = () => {
               backgroundColor: `${!themeData ? "#E6F0F8" : "#1d232a"}`,
             }}
           >
-            <div className="max-w-[1450px] items-center lg:items-start lg:pl-16 md:items-start flex justify-center h-full flex-col mx-auto">
-              <h3 className="font-Akshar text-[46px] text-center lg:text-start md:text-start leading-[60px] font-bold">
+            <div className="max-w-[1450px] items-center lg:items-start lg:pl-16  flex justify-center h-full flex-col mx-auto">
+              <h3 className="font-Akshar text-[46px] text-center lg:text-start  leading-[60px] font-bold">
                 Watercolour Painting
                 <br />
                 Art Collections
               </h3>
-              <p className="mt-[50px] max-w-[400px] leading-8 text-center lg:text-start md:text-start">
+              <p className="mt-[50px] max-w-[400px] leading-8 text-center lg:text-start ">
                 Facilisis leo vel fringilla est ullamcorper eget nulla. Mattis
                 vulputate enim nulla aliquet porttitor lacus luctus.
               </p>
@@ -111,13 +111,13 @@ const Slider = () => {
               backgroundColor: `${!themeData ? "#F6F6F6" : "#1d232a"}`,
             }}
           >
-            <div className="max-w-[1450px] items-center lg:items-start lg:pl-16 md:items-start flex justify-center h-full flex-col mx-auto">
-              <h3 className="font-Akshar text-[46px] text-center lg:text-start md:text-start leading-[60px] font-bold">
+            <div className="max-w-[1450px] items-center lg:items-start lg:pl-16  flex justify-center h-full flex-col mx-auto">
+              <h3 className="font-Akshar text-[46px] text-center lg:text-start  leading-[60px] font-bold">
                 Watercolour Painting
                 <br />
                 Art Collections
               </h3>
-              <p className="mt-[50px] max-w-[400px] leading-8 text-center lg:text-start md:text-start">
+              <p className="mt-[50px] max-w-[400px] leading-8 text-center lg:text-start ">
                 Imperdiet dui accumsan sit amet nulla facilisi morbi tempus
                 iaculis. Nulla pellentesque dignissim enim sit amet venenatis
                 urna cursus eget. Nibh cras pulvinar mattis nunc.
@@ -136,13 +136,13 @@ const Slider = () => {
               backgroundColor: `${!themeData ? "#FBF8F9" : "#1d232a"}`,
             }}
           >
-            <div className="max-w-[1450px] items-center lg:items-start lg:pl-16 md:items-start flex justify-center h-full flex-col mx-auto">
-              <h3 className="font-Akshar text-[46px] text-center lg:text-start md:text-start leading-[60px] font-bold">
+            <div className="max-w-[1450px] items-center lg:items-start lg:pl-16  flex justify-center h-full flex-col mx-auto">
+              <h3 className="font-Akshar text-[46px] text-center lg:text-start  leading-[60px] font-bold">
                 Charcoal Sketching
                 <br />
                 Art Collections
               </h3>
-              <p className="mt-[50px] max-w-[400px] leading-8 text-center lg:text-start md:text-start">
+              <p className="mt-[50px] max-w-[400px] leading-8 text-center lg:text-start ">
                 Felis bibendum ut tristique et egestas. Molestie ac feugiat sed
                 lectus. Eleifend mi in nulla posuere sollicitudin aliquam.
                 Turpis egestas integer eget aliquet nibh.

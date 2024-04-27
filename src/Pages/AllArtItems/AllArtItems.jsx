@@ -22,19 +22,25 @@ const AllArtItems = () => {
           <h3 className="font-Akshar text-3xl font-semibold">
             All Art & Craft Items
           </h3>
-          <p className="text-center max-w-[650px] mt-4 mx-auto">showcases a diverse array of creative products, from paintings to handmade crafts, catering to every artistic inclination.</p>
+          <p className="text-center max-w-[650px] mt-4 mx-auto">
+            showcases a diverse array of creative products, from paintings to
+            handmade crafts, catering to every artistic inclination.
+          </p>
         </div>
       </div>
 
-      <div className="max-w-[1300px] mx-auto gap-6 mt-10 lg:gap-12 grid grid-cols-1 lg:grid-cols-3">
+      <div className="max-w-[1300px] px-3 lg:px-00 mx-auto gap-6 mt-10 lg:gap-12 grid grid-cols-1 lg:grid-cols-3">
         {data?.map((item) => (
-          <div key={item?._id} className="">
-            <div className="w-full h-[450px] border-[3px] border-black p-4 rounded-sm">
+          <div key={item?._id} className="font-Akshar">
+            <div className="w-full relative  h-[450px] border-[3px] border-black p-4 rounded-sm">
               <img
                 className="w-full h-full bg-gray-200"
                 src={item?.image}
                 alt=""
               />
+              <p className="absolute top-5 right-0 text-white bg-opacity-80 bg-cRed p-2">
+                {item?.stockStatus}
+              </p>
             </div>
             <div className="px-6">
               <h3 className="text-2xl font-Akshar font-semibold mt-3">
