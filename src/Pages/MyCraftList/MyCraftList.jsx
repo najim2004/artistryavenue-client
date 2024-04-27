@@ -74,7 +74,7 @@ const MyCraftList = () => {
       </div>
       {myItems.length !== 0 ? (
         <>
-          <div className="max-w-[1300px] mx-auto mt-20 gap-12 grid grid-cols-1 lg:grid-cols-3">
+          <div className="max-w-[1300px] min-h-[calc(100vh-500px)] mx-auto mt-20 gap-12 grid grid-cols-1 lg:grid-cols-3">
             {myItems?.map((item) => (
               <div key={item?._id} className="font-Akshar">
                 <div className="w-full relative h-[450px] border-[3px] border-black p-4 rounded-sm">
@@ -135,8 +135,8 @@ const MyCraftList = () => {
           </div>
         </>
       ) : (
-        <div className="mt-[200px] w-full font-Akshar flex flex-col items-center justify-center">
-          <h3 className=" text-2xl text-center">
+        <div className="min-h-[calc(100vh-500px)] w-full font-Akshar flex flex-col items-center justify-center">
+          <h3 className="mt-[72px] text-2xl text-center">
             Nothing here! <br />
             Please add your Craft and Art!
           </h3>

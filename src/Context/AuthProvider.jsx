@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/all_art_and_craft")
+    fetch("http://localhost:5000/review")
       .then((response) => response.json())
       .then((data) => {
         setReviewData(data);

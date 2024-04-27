@@ -9,7 +9,7 @@ const CraftItems = () => {
   const { data } = useContext(AuthData);
   return (
     <div className="max-w-[1300px] px-3 lg:px-0 font-Akshar mx-auto mt-[100px]">
-      <h3 className="text-3xl font-Akshar font-semibold text-center mb-3">
+      <h3 className="text-3xl lg:text-[48px] font-Akshar text-center mb-3">
         Let's see Our Paintings
       </h3>
       <p className="text-center max-w-[600px] mx-auto mb-12">
