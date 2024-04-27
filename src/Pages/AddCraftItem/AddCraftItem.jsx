@@ -68,17 +68,14 @@ const AddCraftItem = () => {
               placeholder="Enter craft or painting name"
             />
           </div>
-
           <div className="">
-            <label className="text-xl mb-4 font-semibold">
-              Craft Category Name
-            </label>
+            <label className="text-xl mb-4 font-semibold">Image Url</label>
             <br />
             <input
               className="h-12 w-full p-[11px] mt-4 bg-white rounded-[5px]"
               type="text"
-              name="subcategory_Name"
-              placeholder="Enter your craft category name"
+              name="image"
+              placeholder="Enter image URL"
             />
           </div>
           <div className="lg:col-span-2">
@@ -96,14 +93,38 @@ const AddCraftItem = () => {
             ></textarea>
           </div>
           <div className="">
-            <label className="text-xl mb-4 font-semibold">Image Url</label>
+            <label className="text-xl mb-4 font-semibold">
+              Craft Category Name
+            </label>
             <br />
-            <input
+
+            <select
               className="h-12 w-full p-[11px] mt-4 bg-white rounded-[5px]"
-              type="text"
-              name="image"
-              placeholder="Enter image URL"
-            />
+              name="subcategory_Name"
+              id=""
+            >
+              <option selected disabled>
+                Category Name
+              </option>
+              <option value="Landscape Painting">Landscape Painting</option>
+              <option value="Portrait Drawing">Portrait Drawing</option>
+              <option value="Portrait Drawing">Portrait Drawing</option>
+              <option value="Oil Painting">Oil Painting</option>
+              <option value="Charcoal Sketching">Charcoal Sketching</option>
+              <option value="Cartoon Drawing">Cartoon Drawing</option>
+            </select>
+          </div>
+          <div className="">
+            <label className="text-xl mb-4 font-semibold">Customization</label>
+            <br />
+            <select
+              className="h-12 w-full p-[11px] mt-4 bg-white rounded-[5px]"
+              name="customization"
+              id=""
+            >
+              <option value="yes">YES</option>
+              <option value="no">NO</option>
+            </select>
           </div>
           <div className="">
             <label className="text-xl mb-4 font-semibold">
@@ -137,18 +158,7 @@ const AddCraftItem = () => {
               placeholder="Enter Craft rating"
             />
           </div>
-          <div className="">
-            <label className="text-xl mb-4 font-semibold">Customization</label>
-            <br />
-            <select
-              className="h-12 w-full p-[11px] mt-4 bg-white rounded-[5px]"
-              name="customization"
-              id=""
-            >
-              <option value="yes">YES</option>
-              <option value="no">NO</option>
-            </select>
-          </div>
+
           <div className="">
             <label className="text-xl mb-4 font-semibold">Stock Status</label>
             <br />

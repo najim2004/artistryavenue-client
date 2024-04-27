@@ -2,7 +2,7 @@ import { FaArrowTrendUp } from "react-icons/fa6";
 
 const CraftItems = () => {
   return (
-    <div className="max-w-[1300px] mx-auto mt-[100px]">
+    <div className="max-w-[1300px] font-Akshar mx-auto mt-[100px]">
       <h3 className="text-3xl font-Akshar font-semibold text-center mb-12">
         Let's see Our Paintings
       </h3>
