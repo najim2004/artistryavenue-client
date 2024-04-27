@@ -6,6 +6,8 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import headerbg from "../assets/headerbg.png";
+
 import PropTypes from "prop-types";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../Firebase/Firebase.config";
@@ -108,6 +110,7 @@ const AuthProvider = ({ children }) => {
     loading,
     dataLoading,
     themeData,
+    headerbg,
     setThemeData,
     LoginByGoogle,
     LoginByGitHub,

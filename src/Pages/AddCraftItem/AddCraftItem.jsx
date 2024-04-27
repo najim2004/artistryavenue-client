@@ -135,8 +135,8 @@ const AddCraftItem = () => {
               name="customization"
               id=""
             >
-              <option value="yes">YES</option>
-              <option value="no">NO</option>
+              <option value="YES">YES</option>
+              <option value="NO">NO</option>
             </select>
           </div>
           <div className="">
