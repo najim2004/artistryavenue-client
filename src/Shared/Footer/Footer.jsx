@@ -47,7 +47,9 @@ const Footer = () => {
         <div className="max-w-[1450px] px-3 0 min-h-[400px] mx-auto">
           <div className="grid grid-cols-1 min-h-[300px] lg:grid-cols-3 gap-4">
             <div className="flex items-center mt-10 lg:mt- lg:justify-start justify-center">
-              <img className="w-[300px]" src={logo} alt="" />
+              <h3 className="font-Akshar text-[48px] font-semibold" >
+                Artistry <span className="text-cRed">Avenue</span>
+              </h3>
             </div>
             <div className="flex flex-col items-center justify-center">
               <h3 className="font-Akshar text-[44px] text-center">

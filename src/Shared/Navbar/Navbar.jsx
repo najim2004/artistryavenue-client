@@ -82,7 +82,7 @@ const Navbar = () => {
             to={"/"}
             className="text-xl flex items-center -mt-4 font-bold md:text-2xl lg:text-3xl"
           >
-            <img src={logo} alt="" />
+            <h3 className="font-Akshar text-3xl">Artistry <span className="text-cRed">Avenue</span></h3>
           </Link>
         </div>
         <div className=" hidden h-full lg:flex">
