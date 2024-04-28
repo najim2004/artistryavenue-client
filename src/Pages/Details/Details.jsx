@@ -6,7 +6,7 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { FaRegHeart, FaStar } from "react-icons/fa6";
 import { IoShareSocialOutline } from "react-icons/io5";
 const Details = () => {
-  const { data, themeData } = useContext(AuthData);
+  const { data, themeData, categories } = useContext(AuthData);
   const { id } = useParams();
   const [findData, setFindData] = useState({});
 
@@ -14,7 +14,7 @@ const Details = () => {
     setFindData(data?.find((item) => item._id === id));
   }, [data, id]);
   return (
-    <div>
+    <div className="min-h-screen">
       <div
         className="bg-no-repeat bg-cover h-[300px] bg-right lg:h-[400px] -mt-[72px]"
         style={{ backgroundImage: `url(${headerbg})` }}
@@ -46,12 +46,15 @@ const Details = () => {
         <div className="hidden lg:inline-block">
           <h3 className="text-2xl font-semibold font-Akshar">Categories</h3>
           <ul className="list-disc ml-8 mt-8 *:mb-6 ">
+            {categories?.map((category) => (
+              <li
+                key={category?._id}
+                className="hover:text-cRed hover:underline"
+              >
+                <Link>{category.category_name}</Link>
+              </li>
+            ))}
             <li className="hover:text-cRed hover:underline">Category1</li>
-            <li>Category1</li>
-            <li>Category1</li>
-            <li>Category1</li>
-            <li>Category1</li>
-            <li>Category1</li>
           </ul>
         </div>
         <div className="col-span-3 grid grid-cols-1 gap-16 lg:grid-cols-2">

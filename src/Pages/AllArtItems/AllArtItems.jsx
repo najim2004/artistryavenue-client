@@ -9,7 +9,7 @@ const AllArtItems = () => {
   const { data, headerbg, themeData } = useContext(AuthData);
 
   return (
-    <div>
+    <div className="min-h-[calc(100vh-72px)]">
       <div
         className="bg-no-repeat bg-cover h-[300px] bg-right lg:h-[400px] -mt-[83px]"
         style={{ backgroundImage: `url(${headerbg})` }}
@@ -29,8 +29,52 @@ const AllArtItems = () => {
         </div>
       </div>
 
-      <div className="max-w-[1300px] px-3 lg:px-00 mx-auto gap-6 mt-10 lg:gap-12 grid grid-cols-1 lg:grid-cols-3">
-        {data?.map((item) => (
+      <div className="max-w-[1300px] px-3 font-Akshar lg:px-0 mx-auto">
+        <table className="w-full text-start mt-12">
+          <thead
+            className={`text-center *:border-[1px] *:border-black !bg-opacity-50  bg-${
+              !themeData ? "[#fae8d3]" : ""
+            } `}
+          >
+            <th> Art or Craft Name</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Stock Status</th>
+            <th>Details Button</th>
+          </thead>
+          <tbody className="">
+            {data?.map((item) => (
+              <tr
+                className="h-20 text-lg lg:text-xl *:border-[1px] *:border-black text-center w-full"
+                key={item?._id}
+              >
+                <td className="text-start pl-4">{item?.item_name}</td>
+                <td>
+                  <p className="flex items-center justify-center gap-2">
+                    <BsCurrencyDollar />
+                    {item?.Price}
+                  </p>
+                </td>
+                <td className="">
+                  <p className="flex items-center gap-2 justify-center">
+                    <FaStar className="text-yellow-500" />
+                    {item?.rating}
+                  </p>
+                </td>
+                <td>{item?.stockStatus}</td>
+                <td>
+                  <Link to={`/details/${item?._id}`}>
+                    <button className="btn rounded-sm btn-sm h-10 bg-cRed text-white font-Akshar">
+                      View Details
+                      <FaArrowTrendUp />
+                    </button>
+                  </Link>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {/* {data?.map((item) => (
           <div key={item?._id} className="font-Akshar">
             <div className="w-full relative  h-[450px] border-[3px] border-black p-4 rounded-sm">
               <img
@@ -70,7 +114,7 @@ const AllArtItems = () => {
               </div>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );
