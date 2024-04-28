@@ -149,7 +149,7 @@ const CraftUpdate = () => {
             <label className="text-xl mb-4 font-semibold">Customization</label>
             <br />
             <select
-              value={oldData?.customization}
+              defaultValue={oldData?.customization}
               className="h-12 w-full p-[11px] mt-4 bg-white rounded-[5px]"
               name="customization"
               id=""

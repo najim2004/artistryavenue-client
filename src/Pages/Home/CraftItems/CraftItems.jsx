@@ -16,16 +16,9 @@ const CraftItems = () => {
         offers a captivating gallery of diverse artworks, each telling its own
         unique story through vibrant colors and captivating imagery.
       </p>
-      <div className="flex justify-end mb-4">
-        <Link
-          className="hover:text-cRed hover:underline mr-5"
-          to={"/all_art_&_craft_items"}
-        >
-          See All Art & Craft Items
-        </Link>
-      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6 lg:gap-12">
-        {data?.map((item) => (
+        {data?.slice(0, 6)?.map((item) => (
           <div key={item?._id} className="">
             <div className="w-full relative h-[450px] border-[3px] border-black p-4 rounded-sm">
               <img
@@ -33,7 +26,9 @@ const CraftItems = () => {
                 src={item?.image}
                 alt=""
               />
-              <p className="absolute top-5 right-0 text-white bg-opacity-80 bg-cRed p-2">{item?.stockStatus}</p>
+              <p className="absolute top-5 right-0 text-white bg-opacity-80 bg-cRed p-2">
+                {item?.stockStatus}
+              </p>
             </div>
             <div className="px-6">
               <h3 className="text-2xl font-Akshar font-semibold mt-3">
@@ -64,6 +59,14 @@ const CraftItems = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="flex justify-end lg:mt-8 mt-4">
+        <Link
+          className="hover:text-cRed hover:underline mr-5"
+          to={"/all_art_&_craft_items"}
+        >
+          See All Art & Craft Items
+        </Link>
       </div>
     </div>
   );

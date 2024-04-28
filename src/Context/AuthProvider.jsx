@@ -23,11 +23,22 @@ const AuthProvider = ({ children }) => {
   const [reviewData, setReviewData] = useState([]);
   const [dataLoading, setDataLoading] = useState(true);
   const [themeData, setThemeData] = useState(false);
-
+  const [myItems, setMyItems] = useState([]);
   const registerUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/my_art_&_craft_list/${user?.email}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setMyItems(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [user]);
 
   useEffect(() => {
     fetch("http://localhost:5000/all_art_and_craft")
@@ -111,6 +122,7 @@ const AuthProvider = ({ children }) => {
     dataLoading,
     themeData,
     headerbg,
+    myItems,
     setThemeData,
     LoginByGoogle,
     LoginByGitHub,

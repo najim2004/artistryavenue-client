@@ -1,4 +1,5 @@
 import Review from "../../Component/Review";
+import WhyChoseUs from "../../Component/WhyChoseUs";
 import CraftCategories from "./CraftCategories/CraftCategories";
 import CraftItems from "./CraftItems/CraftItems";
 import Slider from "./Slider/Slider";
@@ -14,6 +15,7 @@ const Home = () => {
         </h3>
         <Review></Review>
       </div>
+      <WhyChoseUs></WhyChoseUs>
       <CraftCategories></CraftCategories>
     </div>
   );

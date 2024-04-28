@@ -9,18 +9,14 @@ import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 
 const MyCraftList = () => {
-  const { themeData, headerbg, user } = useContext(AuthData);
-  const [myItems, setMyItems] = useState([]);
+  const { themeData, headerbg, user, myItems } = useContext(AuthData);
+  const [val, setval] = useState();
+  const [sorItems, setSortItems] = useState([]);
+  const [sorItems2, setSortItems2] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/my_art_&_craft_list/${user?.email}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setMyItems(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [user]);
+    setSortItems(myItems);
+  }, [myItems, sorItems2]);
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -40,7 +36,7 @@ const MyCraftList = () => {
           .then((data) => {
             {
               if (data.deletedCount > 0) {
-                setMyItems(myItems.filter((item) => item._id !== id));
+                sorItems(myItems.filter((item) => item._id !== id));
                 Swal.fire({
                   title: "Deleted!",
                   text: "Your file has been deleted.",
@@ -52,6 +48,40 @@ const MyCraftList = () => {
       }
     });
   };
+  const compare = (a, b) => {
+    if (a.customization === "YES" && b.customization !== "YES") {
+      return -1; // a comes before b
+    } else if (a.customization !== "YES" && b.customization === "YES") {
+      return 1; // b comes before a
+    } else {
+      return 0; // no change in order
+    }
+  };
+  const compare2 = (a, b) => {
+    if (a.customization === "NO" && b.customization !== "NO") {
+      return -1; // a comes before b
+    } else if (a.customization !== "NO" && b.customization === "NO") {
+      return 1; // b comes before a
+    } else {
+      return 0; // no change in order
+    }
+  };
+
+  // useEffect(() => {
+  //   if (val == "yes") {
+  //   }
+  //   if (val == "no") {
+  //     setSortItems(myItems.sort(compare2));
+  //   }
+  //   console.log(val);
+  // }, [val]);
+  const yes = () => {
+    setSortItems([...myItems].sort(compare));
+  };
+  const no = () => {
+    setSortItems([...myItems].sort(compare2));
+  };
+
   return (
     <div>
       <div
@@ -72,10 +102,25 @@ const MyCraftList = () => {
           </p>
         </div>
       </div>
-      {myItems.length !== 0 ? (
+      <div className="max-w-[1300px] min-h-[calc(100vh-500px)] mx-auto ">
+        <div className="flex justify-end mt-10">
+          <details className="dropdown ">
+            <summary className="m-1 btn text-white rounded-sm bg-cRed">
+              Sort By Customization
+            </summary>
+            <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+              <li onClick={yes}>
+                <a>YES</a>
+              </li>
+              <li onClick={no}>
+                <a>NO</a>
+              </li>
+            </ul>
+          </details>
+        </div>
         <>
-          <div className="max-w-[1300px] min-h-[calc(100vh-500px)] mx-auto mt-20 gap-12 grid grid-cols-1 lg:grid-cols-3">
-            {myItems?.map((item) => (
+          <div className="mt-20 gap-12 grid grid-cols-1 lg:grid-cols-3">
+            {sorItems?.map((item) => (
               <div key={item?._id} className="font-Akshar">
                 <div className="w-full relative h-[450px] border-[3px] border-black p-4 rounded-sm">
                   <img
@@ -134,19 +179,20 @@ const MyCraftList = () => {
             ))}
           </div>
         </>
-      ) : (
-        <div className="min-h-[calc(100vh-500px)] w-full font-Akshar flex flex-col items-center justify-center">
-          <h3 className="mt-[72px] text-2xl text-center">
-            Nothing here! <br />
-            Please add your Craft and Art!
-          </h3>
-          <Link className="mx-auto mt-6" to={"/add_craft_item"}>
-            <button className="btn bg-cRed rounded-sm text-white">
-              Add Your Craft
-            </button>
-          </Link>
-        </div>
-      )}
+        {/* {myItems.length === 0 && (
+          <div className="min-h-[calc(100vh-500px)] w-full font-Akshar flex flex-col items-center justify-center">
+            <h3 className="mt-[72px] text-2xl text-center">
+              Nothing here! <br />
+              Please add your Craft and Art!
+            </h3>
+            <Link className="mx-auto mt-6" to={"/add_craft_item"}>
+              <button className="btn bg-cRed rounded-sm text-white">
+                Add Your Craft
+              </button>
+            </Link>
+          </div>
+        )} */}
+      </div>
     </div>
   );
 };
