@@ -30,7 +30,7 @@ const Footer = () => {
         </Link>
       </li>
       <li>
-        <Link className="hover:text-cRed hover:underline" to={"/contact-us"}>
+        <Link className="hover:text-cRed hover:underline" to={"/contact_us"}>
           Contact us
         </Link>
       </li>
@@ -44,7 +44,7 @@ const Footer = () => {
           !themeData ? "" : "black"
         } h-full w-full min-h-[400px]`}
       >
-        <div className="max-w-[1450px] px-3 lg:px-00 min-h-[400px] mx-auto">
+        <div className="max-w-[1450px] px-3 0 min-h-[400px] mx-auto">
           <div className="grid grid-cols-1 min-h-[300px] lg:grid-cols-3 gap-4">
             <div className="flex items-center mt-10 lg:mt- lg:justify-start justify-center">
               <img className="w-[300px]" src={logo} alt="" />
@@ -78,7 +78,11 @@ const Footer = () => {
           </div>
           <p className="text-center mt-6">
             All Right Reserved © 2024 By{" "}
-            <a target="_blank" className="text-cRed" href="facebook.com/najim2004">
+            <a
+              target="_blank"
+              className="text-cRed"
+              href="facebook.com/najim2004"
+            >
               Najim
             </a>
           </p>

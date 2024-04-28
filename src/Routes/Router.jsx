@@ -10,6 +10,8 @@ import Details from "../Pages/Details/Details";
 import CraftUpdate from "../Pages/CraftUpdate/CraftUpdate";
 import PrivateRoute from "./PrivateRoute";
 import Error404 from "../Pages/404/Error404";
+import ContactUs from "../Pages/ContactUs/ContactUs";
+import ItemByCategory from "../Pages/itemByCategory/ItemByCategory";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +66,14 @@ const router = createBrowserRouter([
             <CraftUpdate></CraftUpdate>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/contact_us",
+        element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/categories/:id",
+        element: <ItemByCategory></ItemByCategory>,
       },
     ],
   },

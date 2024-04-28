@@ -23,6 +23,7 @@ const AuthProvider = ({ children }) => {
   const [reviewData, setReviewData] = useState([]);
   const [dataLoading, setDataLoading] = useState(true);
   const [themeData, setThemeData] = useState(false);
+  const [reRender, setReRender] = useState(false);
   const [myItems, setMyItems] = useState([]);
   const [categories, setCategories] = useState([]);
 
@@ -32,7 +33,9 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/my_art_&_craft_list/${user?.email}`)
+    fetch(
+      `https://artistryavenue-sever.vercel.app/my_art_&_craft_list/${user?.email}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setMyItems(data);
@@ -40,27 +43,27 @@ const AuthProvider = ({ children }) => {
       .catch((err) => {
         console.log(err);
       });
-  }, [user]);
+  }, [user, reRender]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/all_art_and_craft")
+    fetch("https://artistryavenue-sever.vercel.app/all_art_and_craft")
       .then((response) => response.json())
       .then((data) => {
         setData(data);
 
         setTimeout(() => setDataLoading(false), 1500);
       });
-  }, []);
+  }, [reRender]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/review")
+    fetch("https://artistryavenue-sever.vercel.app/review")
       .then((response) => response.json())
       .then((data) => {
         setReviewData(data);
       });
   }, []);
   useEffect(() => {
-    fetch("http://localhost:5000/categories")
+    fetch("https://artistryavenue-sever.vercel.app/categories")
       .then((response) => response.json())
       .then((data) => {
         setCategories(data);
@@ -125,13 +128,15 @@ const AuthProvider = ({ children }) => {
 
   const contextData = {
     data,
+    reRender,
+    setReRender,
     reviewData,
+    myItems,
     user,
     loading,
     dataLoading,
     themeData,
     headerbg,
-    myItems,
     categories,
     setThemeData,
     LoginByGoogle,

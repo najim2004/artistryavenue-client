@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import { AuthData } from "../../Context/AuthProvider";
+import { Fade } from "react-awesome-reveal";
 const AddCraftItem = () => {
-  const { themeData, user, sweetAlert } = useContext(AuthData);
+  const { themeData, user, sweetAlert, setReRender, reRender } =
+    useContext(AuthData);
 
   const handleAddCraft = (e) => {
     e.preventDefault();
@@ -20,7 +22,7 @@ const AddCraftItem = () => {
       stockStatus: form.stockStatus.value,
     };
     console.log(formData);
-    fetch("http://localhost:5000/all_art_and_craft", {
+    fetch("https://artistryavenue-sever.vercel.app/all_art_and_craft", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,6 +32,7 @@ const AddCraftItem = () => {
       .then((res) => res.json())
       .then((data) => {
         sweetAlert("Successfully Added", "success", false, false, 1500);
+        setReRender(!reRender);
         console.log(data);
         form.reset();
       });
@@ -41,9 +44,11 @@ const AddCraftItem = () => {
         style={{ backgroundColor: `${themeData ? "#606060c4" : "#fae8d3"}` }}
       >
         <div className="">
-          <h1 className="text-2xl font-bold text-center mb-5">
-            {location?.state ? "Update Your Craft Item" : "Add Your Craft Item"}
-          </h1>
+          <Fade>
+            <h1 className="text-2xl font-bold text-center mb-5">
+              Add Your Craft Item
+            </h1>
+          </Fade>
           <hr className="mb-5 border-t-[1px] border-cRed w-full" />
 
           <form

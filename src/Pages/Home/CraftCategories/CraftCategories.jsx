@@ -1,11 +1,48 @@
-import React from 'react';
+import { useContext } from "react";
+import { AuthData } from "../../../Context/AuthProvider";
+import { Link } from "react-router-dom";
+import { Fade, Zoom } from "react-awesome-reveal";
 
 const CraftCategories = () => {
-    return (
-        <div>
-            
+  const { categories } = useContext(AuthData);
+  return (
+    <div>
+      <Fade>
+        <h3 className="text-3xl lg:text-[48px] font-Akshar mt-12 lg:mt-[100px] text-center">
+          Select Your Categories
+        </h3>
+      </Fade>
+      <Fade delay={300}>
+        <div className="max-w-[1450px] p-3 lg:p-0 mx-auto mt-8 lg:mt-12 gap-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {categories?.map((category) => (
+            <div
+              key={category?._id}
+              className="relative overflow-hidden group h-[250px] w-full"
+            >
+              <img
+                className="h-[250px] w-full rounded-sm bg-gray-50"
+                src={category?.image}
+                alt=""
+              />
+              <div className="absolute inset-0 group gap-4 flex flex-col justify-center items-center font-Akshar text-3xl bg-black bg-opacity-60  lg:group-hover:translate-y-[0] lg:transition lg:duration-500 lg:translate-y-[250px] rounded-sm">
+                <h3 className="text-white font-semibold">
+                  {category?.category_name}
+                </h3>
+                <p className="text-base text-center max-w-[500px] text-white">
+                  {category?.description}
+                </p>
+                <Link to={`/categories/${category?._id}`}>
+                  <button className="text-lg btn btn-sm h-10 px-3 bg-cRed text-white rounded-sm border-none">
+                    View All Post
+                  </button>
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
-    );
+      </Fade>
+    </div>
+  );
 };
 
 export default CraftCategories;

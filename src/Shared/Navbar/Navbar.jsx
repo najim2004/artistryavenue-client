@@ -4,7 +4,7 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import logo from "../../assets/logo.png";
 import { AuthData } from "../../Context/AuthProvider";
 import { getTheme, setTheme } from "../../Utilities/localstorage";
-
+import { Tooltip } from "react-tooltip";
 const Navbar = () => {
   const { user, logOutUser, sweetAlert, loading, setThemeData } =
     useContext(AuthData);
@@ -24,7 +24,7 @@ const Navbar = () => {
         <NavLink to={"/my_art_&_craft_list"}>My Art&Craft List</NavLink>
       </li>
       <li>
-        <NavLink to={"/contact-us"}>Contact us</NavLink>
+        <NavLink to={"/contact_us"}>Contact us</NavLink>
       </li>
     </>
   );
@@ -99,8 +99,10 @@ const Navbar = () => {
                 {user ? (
                   <div className="flex z-20 gap-3 items-center">
                     <div
-                      data-tip={user?.displayName.toUpperCase()}
-                      className="tooltip tooltip-left dropdown dropdown-end"
+                      data-tooltip-id="my-tooltip"
+                      data-tooltip-content={user?.displayName.toUpperCase()}
+                      data-tooltip-place="left"
+                      className=" dropdown dropdown-end"
                     >
                       <div
                         tabIndex={0}
@@ -242,6 +244,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <Tooltip id="my-tooltip" />
     </div>
   );
 };

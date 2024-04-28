@@ -5,6 +5,7 @@ import headerbg from "../../assets/headerbg.png";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { FaRegHeart, FaStar } from "react-icons/fa6";
 import { IoShareSocialOutline } from "react-icons/io5";
+import { Slide } from "react-awesome-reveal";
 const Details = () => {
   const { data, themeData, categories } = useContext(AuthData);
   const { id } = useParams();
@@ -16,7 +17,7 @@ const Details = () => {
   return (
     <div className="min-h-screen">
       <div
-        className="bg-no-repeat bg-cover h-[300px] bg-right lg:h-[400px] -mt-[72px]"
+        className="bg-no-repeat bg-cover h-[300px] bg-right lg:h-[400px] -mt-[82px]"
         style={{ backgroundImage: `url(${headerbg})` }}
       >
         <div
@@ -25,24 +26,27 @@ const Details = () => {
           } w-full h-full`}
         >
           <div className="max-w-[1450px]  h-full flex flex-col justify-center mx-auto">
-            <h3 className="font-Akshar ml-6  lg:ml-0 text-start font-medium text-xl lg:text-[40px]">
-              {findData?.item_name}
-            </h3>
-            <p className="flex ml-6 lg:ml-0 text-lg flex-wrap mt-5">
-              <Link className="hover:text-cRed hover:underline" to={"/"}>
-                Home
-              </Link>
-              {">"}
-              <Link className="hover:text-cRed hover:underline">
-                {findData?.subcategory_Name}
-              </Link>
-              {">"}
-              {findData?.item_name}
-            </p>
+            <Slide>
+              <h3 className="font-Akshar ml-6  lg:ml-0 text-start font-medium text-xl lg:text-[40px]">
+                {findData?.item_name}
+              </h3>
+
+              <p className="flex ml-6 lg:ml-0 text-lg flex-wrap mt-5">
+                <Link className="hover:text-cRed hover:underline" to={"/"}>
+                  Home
+                </Link>
+                {">"}
+                <Link className="hover:text-cRed hover:underline">
+                  {findData?.subcategory_Name}
+                </Link>
+                {">"}
+                {findData?.item_name}
+              </p>
+            </Slide>
           </div>
         </div>
       </div>
-      <div className="mt-12 lg:mt-[100px] px-3 lg:px-0 max-w-[1450px] mx-auto grid grid-cols-1 gap-6 lg:grid-cols-4">
+      <div className="mt-12 lg:mt-[100px] px-3  max-w-[1450px] mx-auto grid grid-cols-1 gap-6 lg:grid-cols-4">
         <div className="hidden lg:inline-block">
           <h3 className="text-2xl font-semibold font-Akshar">Categories</h3>
           <ul className="list-disc ml-8 mt-8 *:mb-6 ">
@@ -51,10 +55,11 @@ const Details = () => {
                 key={category?._id}
                 className="hover:text-cRed hover:underline"
               >
-                <Link>{category.category_name}</Link>
+                <Link to={`/category/${category?._id}`}>
+                  {category.category_name}
+                </Link>
               </li>
             ))}
-            <li className="hover:text-cRed hover:underline">Category1</li>
           </ul>
         </div>
         <div className="col-span-3 grid grid-cols-1 gap-16 lg:grid-cols-2">

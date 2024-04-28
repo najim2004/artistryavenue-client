@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { AuthData } from "../../Context/AuthProvider";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { FaArrowTrendUp, FaStar } from "react-icons/fa6";
-import { TbCategory2 } from "react-icons/tb";
+import { Fade, Zoom } from "react-awesome-reveal";
+
 import { Link } from "react-router-dom";
 
 const AllArtItems = () => {
@@ -19,61 +20,68 @@ const AllArtItems = () => {
             !themeData ? "white" : "black"
           } w-full h-full flex flex-col justify-center items-center`}
         >
-          <h3 className="font-Akshar text-3xl font-semibold">
-            All Art & Craft Items
-          </h3>
-          <p className="text-center max-w-[650px] mt-4 mx-auto">
-            showcases a diverse array of creative products, from paintings to
-            handmade crafts, catering to every artistic inclination.
-          </p>
+          <Fade>
+            <h3 className="font-Akshar text-3xl font-semibold">
+              All Art & Craft Items
+            </h3>
+          </Fade>
+          <Zoom>
+            <p className="text-center max-w-[650px] mt-4 mx-auto">
+              showcases a diverse array of creative products, from paintings to
+              handmade crafts, catering to every artistic inclination.
+            </p>
+          </Zoom>
         </div>
       </div>
 
-      <div className="max-w-[1300px] px-3 font-Akshar lg:px-0 mx-auto">
-        <table className="w-full text-start mt-12">
-          <thead
-            className={`text-center *:border-[1px] *:border-black !bg-opacity-50  bg-${
-              !themeData ? "[#fae8d3]" : ""
-            } `}
-          >
-            <th> Art or Craft Name</th>
-            <th>Price</th>
-            <th>Rating</th>
-            <th>Stock Status</th>
-            <th>Details Button</th>
-          </thead>
-          <tbody className="">
-            {data?.map((item) => (
-              <tr
-                className="h-20 text-lg lg:text-xl *:border-[1px] *:border-black text-center w-full"
-                key={item?._id}
-              >
-                <td className="text-start pl-4">{item?.item_name}</td>
-                <td>
-                  <p className="flex items-center justify-center gap-2">
-                    <BsCurrencyDollar />
-                    {item?.Price}
-                  </p>
-                </td>
-                <td className="">
-                  <p className="flex items-center gap-2 justify-center">
-                    <FaStar className="text-yellow-500" />
-                    {item?.rating}
-                  </p>
-                </td>
-                <td>{item?.stockStatus}</td>
-                <td>
-                  <Link to={`/details/${item?._id}`}>
-                    <button className="btn rounded-sm btn-sm h-10 bg-cRed text-white font-Akshar">
-                      View Details
-                      <FaArrowTrendUp />
-                    </button>
-                  </Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="max-w-[1300px] px-3 font-Akshar  mx-auto">
+        <Fade>
+          <table className="w-full text-start mt-12">
+            <thead
+              className={`text-center *:border-[1px] *:border-black !bg-opacity-50  bg-${
+                !themeData ? "[#fae8d3]" : ""
+              } `}
+            >
+              <th> Art or Craft Name</th>
+              <th>Price</th>
+              <th>Rating</th>
+              <th>Stock Status</th>
+              <th>Details Button</th>
+            </thead>
+
+            <tbody className="">
+              {data?.map((item) => (
+                <tr
+                  className="h-20 text-lg lg:text-xl *:border-[1px] *:border-black text-center w-full"
+                  key={item?._id}
+                >
+                  <td className="text-start pl-4">{item?.item_name}</td>
+                  <td>
+                    <p className="flex items-center justify-center gap-2">
+                      <BsCurrencyDollar />
+                      {item?.Price}
+                    </p>
+                  </td>
+                  <td className="">
+                    <p className="flex items-center gap-2 justify-center">
+                      <FaStar className="text-yellow-500" />
+                      {item?.rating}
+                    </p>
+                  </td>
+                  <td>{item?.stockStatus}</td>
+                  <td>
+                    <Link to={`/details/${item?._id}`}>
+                      <button className="btn rounded-sm btn-sm h-10 bg-cRed text-white font-Akshar">
+                        View Details
+                        <FaArrowTrendUp />
+                      </button>
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>{" "}
+        </Fade>
         {/* {data?.map((item) => (
           <div key={item?._id} className="font-Akshar">
             <div className="w-full relative  h-[450px] border-[3px] border-black p-4 rounded-sm">
