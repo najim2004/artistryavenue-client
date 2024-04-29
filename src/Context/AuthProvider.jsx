@@ -26,12 +26,18 @@ const AuthProvider = ({ children }) => {
   const [reRender, setReRender] = useState(false);
   const [myItems, setMyItems] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [admin, setAdmin] = useState([]);
 
-  const registerUser = (email, password) => {
-    setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password);
-  };
-
+  useEffect(() => {
+    fetch(`https://artistryavenue-sever.vercel.app/admin`)
+      .then((response) => response.json())
+      .then((data) => {
+        setAdmin(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   useEffect(() => {
     fetch(
       `https://artistryavenue-sever.vercel.app/my_art_&_craft_list/${user?.email}`
@@ -69,6 +75,11 @@ const AuthProvider = ({ children }) => {
         setCategories(data);
       });
   }, []);
+
+  const registerUser = (email, password) => {
+    setLoading(true);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
@@ -128,6 +139,7 @@ const AuthProvider = ({ children }) => {
 
   const contextData = {
     data,
+    admin,
     reRender,
     setReRender,
     reviewData,

@@ -10,7 +10,7 @@ import { Fade, Zoom } from "react-awesome-reveal";
 const CraftItems = () => {
   const { data } = useContext(AuthData);
   return (
-    <div className="max-w-[1300px] px-3  font-Akshar mx-auto mt-[100px]">
+    <div className="max-w-[1300px] px-3 overflow-x-hidden  font-Akshar mx-auto mt-[100px]">
       <Fade duration={1000}>
         <h3 className="text-3xl lg:text-[48px] font-Akshar text-center mb-3">
           Let's see Our Paintings

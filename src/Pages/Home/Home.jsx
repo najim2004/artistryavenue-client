@@ -11,7 +11,7 @@ const Home = () => {
       <Slider></Slider>
       <CraftItems></CraftItems>
       <CraftCategories></CraftCategories>
-      <div className="">
+      <div className="overflow-x-hidden">
         <Fade>
           <h3 className="lg:text-[48px] text-3xl mb-12 font-Akshar text-center mt-12 lg:mt-[100px]">
             What Our People Saying

@@ -50,7 +50,7 @@ const CraftUpdate = () => {
       });
   };
   return (
-    <div className="min-h-screen mt-12">
+    <div className="min-h-screen overflow-x-hidden mt-12">
       <div
         className="max-w-[1050px] mx-3 font-Akshar bgr-[#606060c4] p-3 lg:p-10 rounded-[8px] lg:mx-auto"
         style={{ backgroundColor: `${themeData ? "#606060c4" : "#fae8d3"}` }}

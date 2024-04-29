@@ -13,21 +13,18 @@ import slider4 from "../../../assets/slider4.png";
 import slider5 from "../../../assets/slider5.png";
 import { useContext } from "react";
 import { AuthData } from "../../../Context/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Slider = () => {
-  const [text, helper] = useTypewriter({
-    /* Hook Config */
-  });
-  const { isType, isDelete, isDelay, isDone } = helper;
   const { themeData } = useContext(AuthData);
   return (
-    <div className="h-screen -mt-[82px] !z-0">
+    <div className="h-screen overflow-x-hidden -mt-[82px] !z-0">
       <Swiper
         navigation={true}
         effect={"fade"}
         loop={true}
         autoplay={{
-          delay: 2500,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         modules={[Autoplay, EffectFade, Navigation]}
@@ -53,9 +50,14 @@ const Slider = () => {
                   euismod. Suspendisse interdum consectetur libero id faucibus.
                   Non diam phasellus vestibulum lorem sed.
                 </p>
-                <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white mt-[60px] font-semibold w-[280px]">
-                  Landscape Painting Painting <FaArrowTrendUp />
-                </button>
+                <Link
+                  className="mt-[60px]"
+                  to="/categories/662df6c33115c8ff17fddfa0"
+                >
+                  <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white font-semibold w-[200px]">
+                    Landscape Painting <FaArrowTrendUp />
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -70,8 +72,7 @@ const Slider = () => {
           >
             <div className="inset-0 absolute bg-white lg:bg-opacity-0 bg-opacity-50">
               <div className="max-w-[1450px] items-center lg:items-start lg:pl-16  flex justify-center h-full  flex-col mx-auto">
-                <div className="App">
-                </div>
+                <div className="App"></div>
                 <h3 className="font-Akshar text-[46px] text-center lg:text-start  leading-[60px] font-bold">
                   Oil Painting
                   <br />
@@ -82,9 +83,14 @@ const Slider = () => {
                   ultrices. Malesuada fames ac turpis egestas maecenas pharetra
                   convallis posuere.
                 </p>
-                <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white mt-[60px] font-semibold w-[200px]">
-                  Explore Oil Painting <FaArrowTrendUp />
-                </button>
+                <Link
+                  className="mt-[60px]"
+                  to="/categories/662df7d63115c8ff17fddfa3"
+                >
+                  <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white font-semibold w-[200px]">
+                    Explore Oil Painting <FaArrowTrendUp />
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -108,9 +114,15 @@ const Slider = () => {
                   Facilisis leo vel fringilla est ullamcorper eget nulla. Mattis
                   vulputate enim nulla aliquet porttitor lacus luctus.
                 </p>
-                <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white mt-[60px] font-semibold w-[270px]">
-                  Explore Watercolour Painting <FaArrowTrendUp />
-                </button>
+
+                <Link
+                  className="mt-[60px]"
+                  to="/categories/662df7a13115c8ff17fddfa2"
+                >
+                  <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white font-semibold w-[270px]">
+                    Explore Watercolour Painting <FaArrowTrendUp />
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -135,9 +147,15 @@ const Slider = () => {
                   iaculis. Nulla pellentesque dignissim enim sit amet venenatis
                   urna cursus eget. Nibh cras pulvinar mattis nunc.
                 </p>
-                <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white mt-[60px] font-semibold w-[270px]">
-                  Explore Watercolour Painting <FaArrowTrendUp />
-                </button>
+
+                <Link
+                  className="mt-[60px]"
+                  to="/categories/662df7a13115c8ff17fddfa2"
+                >
+                  <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white font-semibold w-[270px]">
+                    Explore Watercolour Painting <FaArrowTrendUp />
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -162,9 +180,14 @@ const Slider = () => {
                   sed lectus. Eleifend mi in nulla posuere sollicitudin aliquam.
                   Turpis egestas integer eget aliquet nibh.
                 </p>
-                <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white mt-[60px] font-semibold w-[270px]">
-                  Explore Charcoal Sketching <FaArrowTrendUp />
-                </button>
+                <Link
+                  className="mt-[60px]"
+                  to="/categories/662df81d3115c8ff17fddfa4"
+                >
+                  <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white font-semibold w-[270px]">
+                    Explore Charcoal Sketching <FaArrowTrendUp />
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

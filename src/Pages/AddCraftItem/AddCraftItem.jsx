@@ -38,7 +38,7 @@ const AddCraftItem = () => {
       });
   };
   return (
-    <div className="min-h-[calc(100vh-72px)]">
+    <div className="min-h-[calc(100vh-72px)] overflow-x-hidden ">
       <div
         className="max-w-[1050px] lg:mt-10 mx-3 font-Akshar p-3 lg:p-10 rounded-[8px] lg:mx-auto"
         style={{ backgroundColor: `${themeData ? "#606060c4" : "#fae8d3"}` }}

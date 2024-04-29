@@ -9,7 +9,7 @@ import { Pagination } from "swiper/modules";
 const Review = () => {
   const { reviewData } = useContext(AuthData);
   return (
-    <div className="max-w-[1450px] mx-auto">
+    <div className="max-w-[1450px] overflow-x-hidden  mx-auto">
       <Swiper
         slidesPerView={1}
         spaceBetween={30}

@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 import { Fade, Zoom } from "react-awesome-reveal";
 import { Tooltip } from "react-tooltip";
 const MyCraftList = () => {
-  const { themeData, headerbg, user, reRender, myItems, dataLoading } =
+  const { themeData, headerbg, user, myItems, reRender, setReRender } =
     useContext(AuthData);
 
   const [sorItems, setSortItems] = useState([]);
@@ -37,6 +37,7 @@ const MyCraftList = () => {
           .then((data) => {
             console.log(data);
             if (data.deletedCount > 0) {
+              setReRender(!reRender);
               setSortItems(myItems.filter((item) => item._id !== id));
               Swal.fire({
                 title: "Deleted!",
@@ -80,7 +81,7 @@ const MyCraftList = () => {
   return (
     <div>
       <div
-        className="bg-no-repeat bg-cover h-[300px] bg-right lg:h-[400px] -mt-[83px]"
+        className="bg-no-repeat overflow-x-hidden bg-cover h-[300px] bg-right lg:h-[400px] -mt-[83px]"
         style={{ backgroundImage: `url(${headerbg})` }}
       >
         <div
@@ -189,7 +190,7 @@ const MyCraftList = () => {
             ))}
           </div>
         </>
-        {/* {sorItems.length === 0 && (
+        {sorItems.length === 0 && (
           <div className="min-h-[calc(100vh-500px)] w-full font-Akshar flex flex-col items-center justify-center">
             <h3 className="mt-[72px] text-2xl text-center">
               Nothing here! <br />
@@ -201,7 +202,7 @@ const MyCraftList = () => {
               </button>
             </Link>
           </div>
-        )} */}
+        )}
       </div>
       <Tooltip id="my-tooltip" />
     </div>

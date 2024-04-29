@@ -7,7 +7,7 @@ import { Fade, Zoom } from "react-awesome-reveal";
 
 const WhyChoseUs = () => {
   return (
-    <div className="flex px-3  max-w-[1300px] mx-auto flex-col items-center">
+    <div className="flex px-3 overflow-x-hidden  max-w-[1300px] mx-auto flex-col items-center">
       <Fade>
         <h3 className="text-3xl lg:text-[48px] font-Akshar mt-12 lg:mt-[100px] text-center">
           Why Chose Us
