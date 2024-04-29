@@ -8,16 +8,16 @@ const CraftCategories = () => {
   return (
     <div>
       <Fade>
-        <h3 className="text-3xl lg:text-[48px] overflow-x-hidden  font-Akshar mt-12 lg:mt-[100px] text-center">
+        <h3 className="text-3xl lg:text-[48px] overflow-x-hidden pt-3 font-Akshar mt-12 lg:mt-[100px] text-center">
           Select Your Categories
         </h3>
       </Fade>
       <Fade delay={300}>
-        <div className="max-w-[1450px] p-3 lg:p-0 mx-auto mt-8 lg:mt-12 gap-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="max-w-[1150px] p-3 lg:p-0 mx-auto mt-8 lg:mt-12 gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {categories?.map((category) => (
             <div
               key={category?._id}
-              className="relative overflow-hidden group h-[250px] w-full"
+              className="relative overflow-hidden rounded-3xl group h-[250px] w-full"
             >
               <img
                 className="h-[250px] w-full rounded-sm bg-gray-50"
