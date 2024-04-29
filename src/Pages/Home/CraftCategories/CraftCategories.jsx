@@ -17,10 +17,10 @@ const CraftCategories = () => {
           {categories?.map((category) => (
             <div
               key={category?._id}
-              className="relative overflow-hidden rounded-3xl group h-[250px] w-full"
+              className="relative border-[3px] border-cRed lg:p-2 overflow-hidden rounded-3xl group h-[250px] w-full"
             >
               <img
-                className="h-[250px] w-full rounded-sm bg-gray-50"
+                className="h-full rounded-3xl group-hover:scale-125 duration-1000 group-hover:rotate-2 w-full bg-gray-50"
                 src={category?.image}
                 alt=""
               />

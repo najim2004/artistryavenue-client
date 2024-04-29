@@ -1,10 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 import { FaArrowTrendUp } from "react-icons/fa6";
-import { useTypewriter } from "react-simple-typewriter";
 import slider1 from "../../../assets/slider1.png";
 
 import slider2 from "../../../assets/sider2.png";
@@ -14,13 +12,17 @@ import slider5 from "../../../assets/slider5.png";
 import { useContext } from "react";
 import { AuthData } from "../../../Context/AuthProvider";
 import { Link } from "react-router-dom";
+import { LuChevronLeftCircle, LuChevronRightCircle } from "react-icons/lu";
 
 const Slider = () => {
   const { themeData } = useContext(AuthData);
   return (
     <div className="h-screen overflow-x-hidden -mt-[82px] !z-0">
       <Swiper
-        navigation={true}
+        navigation={{
+          nextEl: ".next-btn",
+          prevEl: ".prev-btn",
+        }}
         effect={"fade"}
         loop={true}
         autoplay={{
@@ -28,7 +30,7 @@ const Slider = () => {
           disableOnInteraction: false,
         }}
         modules={[Autoplay, EffectFade, Navigation]}
-        className="mySwiper"
+        className="mySwiper relative group"
       >
         <SwiperSlide>
           <div
@@ -192,6 +194,14 @@ const Slider = () => {
             </div>
           </div>
         </SwiperSlide>
+        <div className="absolute h-full top-0 z-40 group-hover:flex hidden items-center justify-between lg:p-6 w-full">
+          <button className="btn bg-transparent border-none hover:bg-transparent text-5xl text-cRed shadow-none !p-0 prev-btn">
+            <LuChevronLeftCircle />
+          </button>
+          <button className="btn bg-transparent border-none hover:bg-transparent text-5xl text-cRed shadow-none !p-0 next-btn">
+            <LuChevronRightCircle />
+          </button>
+        </div>
       </Swiper>
     </div>
   );

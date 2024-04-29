@@ -29,7 +29,7 @@ const CraftItems = () => {
             <Fade>
               <div className="w-full relative h-[450px] border-[3px] border-black p-4 rounded-sm">
                 <img
-                  className="w-full h-full bg-gray-200"
+                  className="w-full hover:scale-105 duration-700 h-full bg-gray-200"
                   src={item?.image}
                   alt=""
                 />
