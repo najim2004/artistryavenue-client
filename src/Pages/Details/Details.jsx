@@ -6,6 +6,7 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { FaRegHeart, FaStar } from "react-icons/fa6";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { Slide } from "react-awesome-reveal";
+import { Helmet } from "react-helmet-async";
 const Details = () => {
   const { data, themeData, categories } = useContext(AuthData);
   const { id } = useParams();
@@ -16,6 +17,9 @@ const Details = () => {
   }, [data, id]);
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Details | {findData?.item_name}</title>
+      </Helmet>
       <div
         className="bg-no-repeat bg-cover h-[300px] bg-right lg:h-[400px] -mt-[82px]"
         style={{ backgroundImage: `url(${headerbg})` }}

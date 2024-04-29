@@ -6,9 +6,9 @@ import { Fade } from "react-awesome-reveal";
 const CraftCategories = () => {
   const { categories } = useContext(AuthData);
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Fade>
-        <h3 className="text-3xl lg:text-[48px] overflow-x-hidden pt-3 font-Akshar mt-12 lg:mt-[100px] text-center">
+        <h3 className="text-3xl lg:text-[48px] pt-3 font-Akshar mt-12 lg:mt-[100px] text-center">
           Select Your Categories
         </h3>
       </Fade>

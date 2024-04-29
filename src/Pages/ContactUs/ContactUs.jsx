@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 import { AuthData } from "../../Context/AuthProvider";
 import { Fade, Zoom } from "react-awesome-reveal";
+import { Helmet } from "react-helmet-async";
 const ContactUs = () => {
   const { themeData, headerbg } = useContext(AuthData);
   const nameRef = useRef(null);
@@ -18,6 +19,9 @@ const ContactUs = () => {
   };
   return (
     <div className=" font-Akshar min-h-screen mx-auto ">
+      <Helmet>
+        <title>Contact Us</title>
+      </Helmet>
       <div className="">
         <div
           className="bg-no-repeat bg-cover h-[300px] bg-right lg:h-[400px] -mt-[83px]"

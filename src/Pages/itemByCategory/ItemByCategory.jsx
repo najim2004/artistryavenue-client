@@ -5,6 +5,7 @@ import { TbCategory2 } from "react-icons/tb";
 import { FaArrowTrendUp, FaStar } from "react-icons/fa6";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { Fade } from "react-awesome-reveal";
+import { Helmet } from "react-helmet-async";
 
 const ItemByCategory = () => {
   const { id } = useParams();
@@ -18,6 +19,9 @@ const ItemByCategory = () => {
 
   return (
     <div className="overflow-x-hidden ">
+      <Helmet>
+        <title>{categoryName}</title>
+      </Helmet>
       <div
         className="bg-no-repeat bg-cover h-[300px] bg-right lg:h-[400px] -mt-[83px]"
         style={{ backgroundImage: `url(${headerbg})` }}

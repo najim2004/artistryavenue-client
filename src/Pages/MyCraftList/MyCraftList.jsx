@@ -9,6 +9,7 @@ import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Fade, Zoom } from "react-awesome-reveal";
 import { Tooltip } from "react-tooltip";
+import { Helmet } from "react-helmet-async";
 const MyCraftList = () => {
   const { themeData, headerbg, user, myItems, reRender, setReRender } =
     useContext(AuthData);
@@ -80,6 +81,9 @@ const MyCraftList = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>My Art & Craft</title>
+      </Helmet>
       <div
         className="bg-no-repeat overflow-x-hidden bg-cover h-[300px] bg-right lg:h-[400px] -mt-[83px]"
         style={{ backgroundImage: `url(${headerbg})` }}
@@ -135,7 +139,7 @@ const MyCraftList = () => {
                     </p>
                     <div className="bg-black bg-opacity-70 h-12 w-full absolute bottom-0 left-0 flex justify-around">
                       <Link
-                        data-tooltip-id="my-tooltip"
+                        data-tooltip-id="my-tooltip1"
                         data-tooltip-content="Edit this post"
                         data-tooltip-place="top"
                         to={`/update_details/${item?._id}`}
@@ -145,7 +149,7 @@ const MyCraftList = () => {
                         </button>
                       </Link>
                       <button
-                        data-tooltip-id="my-tooltip"
+                        data-tooltip-id="my-tooltip2"
                         data-tooltip-content="Delete this post"
                         data-tooltip-place="top"
                         onClick={() => handleDelete(item?._id)}
@@ -204,7 +208,8 @@ const MyCraftList = () => {
           </div>
         )}
       </div>
-      <Tooltip id="my-tooltip" />
+      <Tooltip id="my-tooltip1" />
+      <Tooltip id="my-tooltip2" />
     </div>
   );
 };

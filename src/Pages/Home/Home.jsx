@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Review from "../../Component/Review";
 import WhyChoseUs from "../../Component/WhyChoseUs";
 import CraftCategories from "./CraftCategories/CraftCategories";
@@ -8,6 +9,9 @@ import { Fade } from "react-awesome-reveal";
 const Home = () => {
   return (
     <div>
+      <Helmet>
+        <title>Artistry Avenue | Home</title>
+      </Helmet>
       <Slider></Slider>
       <CraftItems></CraftItems>
       <CraftCategories></CraftCategories>

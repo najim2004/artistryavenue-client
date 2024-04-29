@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthData } from "../../Context/AuthProvider";
 import { useParams } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
+import { Helmet } from "react-helmet-async";
 
 const CraftUpdate = () => {
   const { themeData, data, sweetAlert, setReRender, reRender } =
@@ -51,6 +52,9 @@ const CraftUpdate = () => {
   };
   return (
     <div className="min-h-screen overflow-x-hidden mt-12">
+      <Helmet>
+        <title>Update Your Craft</title>
+      </Helmet>
       <div
         className="max-w-[1050px] mx-3 font-Akshar bgr-[#606060c4] p-3 lg:p-10 rounded-[8px] lg:mx-auto"
         style={{ backgroundColor: `${themeData ? "#606060c4" : "#fae8d3"}` }}

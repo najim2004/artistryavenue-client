@@ -7,6 +7,7 @@ import { Fade, Zoom } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AllArtItems = () => {
   const { data, headerbg, themeData, admin, user, reRender, setReRender } =
@@ -62,7 +63,10 @@ const AllArtItems = () => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-72px)] overflow-hidden">
+    <div className="min-h-[calc(100vh-72px)]">
+      <Helmet>
+        <title>All Art & Craft</title>
+      </Helmet>
       <div
         className="bg-no-repeat bg-cover h-[300px] bg-right lg:h-[400px] -mt-[83px]"
         style={{ backgroundImage: `url(${headerbg})` }}
