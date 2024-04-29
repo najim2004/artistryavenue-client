@@ -55,7 +55,7 @@ const Details = () => {
                 key={category?._id}
                 className="hover:text-cRed hover:underline"
               >
-                <Link to={`/category/${category?._id}`}>
+                <Link to={`/categories/${category?._id}`}>
                   {category.category_name}
                 </Link>
               </li>

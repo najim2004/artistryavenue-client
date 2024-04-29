@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthData } from "../../Context/AuthProvider";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { FaArrowTrendUp, FaStar } from "react-icons/fa6";
@@ -8,7 +8,12 @@ import { Link } from "react-router-dom";
 
 const AllArtItems = () => {
   const { data, headerbg, themeData } = useContext(AuthData);
+  
 
+
+  useEffect(()=>{
+    fetch('https://world-tour-server-ten.vercel.app/spots')
+  },[])
   return (
     <div className="min-h-[calc(100vh-72px)]">
       <div

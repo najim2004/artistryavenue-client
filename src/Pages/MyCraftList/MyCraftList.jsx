@@ -12,7 +12,6 @@ import { Tooltip } from "react-tooltip";
 const MyCraftList = () => {
   const { themeData, headerbg, user, reRender, myItems, dataLoading } =
     useContext(AuthData);
-  // const [val, setval] = useState();
 
   const [sorItems, setSortItems] = useState([]);
   useEffect(() => {
@@ -71,14 +70,6 @@ const MyCraftList = () => {
     }
   };
 
-  // useEffect(() => {
-  //   if (val == "yes") {
-  //   }
-  //   if (val == "no") {
-  //     setSortItems(myItems.sort(compare2));
-  //   }
-  //   console.log(val);
-  // }, [val]);
   const yes = () => {
     setSortItems([...myItems].sort(compare));
   };

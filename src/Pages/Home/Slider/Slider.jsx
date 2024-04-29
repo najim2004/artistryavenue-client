@@ -71,7 +71,6 @@ const Slider = () => {
             <div className="inset-0 absolute bg-white lg:bg-opacity-0 bg-opacity-50">
               <div className="max-w-[1450px] items-center lg:items-start lg:pl-16  flex justify-center h-full  flex-col mx-auto">
                 <div className="App">
-                  <span>{text}</span>
                 </div>
                 <h3 className="font-Akshar text-[46px] text-center lg:text-start  leading-[60px] font-bold">
                   Oil Painting

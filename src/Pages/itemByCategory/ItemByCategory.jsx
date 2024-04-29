@@ -32,7 +32,7 @@ const ItemByCategory = () => {
           </p>
         </div>
       </div>
-      <div className="max-w-[1300px] min-h-[calc(100vh-500px)] mt-12 lg:mt-20 px-3 mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 lg:gap-16 mg-8">
+      <div className="max-w-[1300px] min-h-[calc(100vh-500px)] mt-12 lg:mt-20 px-3 mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 lg:gap-16 gap-8">
         {allPost.map((item) => (
           <div key={item?._id} className="">
             <div className="w-full relative h-[450px] border-[3px] border-black p-4 rounded-sm">
