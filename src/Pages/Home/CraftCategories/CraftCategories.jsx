@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthData } from "../../../Context/AuthProvider";
 import { Link } from "react-router-dom";
-import { Fade, Zoom } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 
 const CraftCategories = () => {
   const { categories } = useContext(AuthData);
