@@ -18,7 +18,9 @@ const Details = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Details | {findData?.item_name}</title>
+        <title>
+          Details | {findData?.item_name ? findData?.item_name : ""}
+        </title>
       </Helmet>
       <div
         className="bg-no-repeat bg-cover h-[300px] bg-right lg:h-[400px] -mt-[82px]"
