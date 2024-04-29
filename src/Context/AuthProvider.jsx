@@ -29,9 +29,11 @@ const AuthProvider = ({ children }) => {
   const [admin, setAdmin] = useState([]);
 
   useEffect(() => {
+    setDataLoading(true);
     fetch(`https://artistryavenue-sever.vercel.app/admin`)
       .then((response) => response.json())
       .then((data) => {
+        setDataLoading(false);
         setAdmin(data);
       })
       .catch((err) => {
@@ -39,11 +41,13 @@ const AuthProvider = ({ children }) => {
       });
   }, []);
   useEffect(() => {
+    setDataLoading(true);
     fetch(
       `https://artistryavenue-sever.vercel.app/my_art_&_craft_list/${user?.email}`
     )
       .then((response) => response.json())
       .then((data) => {
+        setDataLoading(false);
         setMyItems(data);
       })
       .catch((err) => {
@@ -52,26 +56,31 @@ const AuthProvider = ({ children }) => {
   }, [user, reRender]);
 
   useEffect(() => {
+    setDataLoading(true);
     fetch("https://artistryavenue-sever.vercel.app/all_art_and_craft")
       .then((response) => response.json())
       .then((data) => {
         setData(data);
 
-        setTimeout(() => setDataLoading(false), 1500);
+        setDataLoading(false);
       });
   }, [reRender]);
 
   useEffect(() => {
+    setDataLoading(true);
     fetch("https://artistryavenue-sever.vercel.app/review")
       .then((response) => response.json())
       .then((data) => {
+        setDataLoading(false);
         setReviewData(data);
       });
   }, []);
   useEffect(() => {
+    setDataLoading(true);
     fetch("https://artistryavenue-sever.vercel.app/categories")
       .then((response) => response.json())
       .then((data) => {
+        setDataLoading(false);
         setCategories(data);
       });
   }, []);

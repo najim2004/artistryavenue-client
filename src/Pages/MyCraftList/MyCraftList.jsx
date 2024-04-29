@@ -14,10 +14,10 @@ const MyCraftList = () => {
   const { themeData, headerbg, user, myItems, reRender, setReRender } =
     useContext(AuthData);
 
-  const [sorItems, setSortItems] = useState([]);
+  const [sorItems, setSortItems] = useState(myItems);
   useEffect(() => {
     setSortItems(myItems);
-  }, [myItems, user]);
+  }, [myItems, user, reRender]);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -55,20 +55,20 @@ const MyCraftList = () => {
   };
   const compare = (a, b) => {
     if (a.customization === "YES" && b.customization !== "YES") {
-      return -1; // a comes before b
+      return -1;
     } else if (a.customization !== "YES" && b.customization === "YES") {
-      return 1; // b comes before a
+      return 1;
     } else {
-      return 0; // no change in order
+      return 0;
     }
   };
   const compare2 = (a, b) => {
     if (a.customization === "NO" && b.customization !== "NO") {
-      return -1; // a comes before b
+      return -1;
     } else if (a.customization !== "NO" && b.customization === "NO") {
-      return 1; // b comes before a
+      return 1;
     } else {
-      return 0; // no change in order
+      return 0;
     }
   };
 
