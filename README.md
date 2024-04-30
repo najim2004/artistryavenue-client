@@ -1,6 +1,6 @@
 # Artistry Avenue
 
-Welcome to Artistry Avenue, your destination for art and paintings!
+Welcome to Artistry Avenue, your premier destination for art and paintings!
 
 ## Features and Characteristics
 
@@ -11,6 +11,7 @@ Welcome to Artistry Avenue, your destination for art and paintings!
 - **Post Paintings**: Registered users can post their own paintings for sale.
 - **Craft List**: Users can view all of their posted paintings in one convenient location.
 - **Update and Delete Posts**: Registered users can update or delete their posted paintings.
+- **Admin Special Access**: Admins have special privileges for managing the website.
 
 ## NPM Packages Used
 
@@ -21,10 +22,19 @@ Welcome to Artistry Avenue, your destination for art and paintings!
 - **SweetAlert**: A beautiful, responsive, customizable replacement for JavaScript's alert.
 - **react-icons**: A comprehensive library of icons for React applications.
 - **Firebase**: A powerful platform for building mobile and web applications.
+- **react-lottie**: A library for adding Lottie animations to React projects.
+- **react-simple-typewriter**: A simple typewriter effect for React.
+- **react-helmet-async**: A wrapper for asynchronous helmet usage in React.
+- **react-hook-form**: Performant, flexible and extensible forms with easy-to-use validation.
+- **react-fast-marquee**: A lightweight, fast marquee component for React.
 
 ## Live Link
 
 [Artistry Avenue](https://artistry-avenue.web.app/)
+
+## Description
+
+Artistry Avenue aims to provide a seamless platform for artists and art enthusiasts to connect. Whether you're an artist looking to showcase your work or a collector searching for the perfect piece, Artistry Avenue has you covered. With a user-friendly interface, secure registration and login system, and a wide range of features including posting, updating, and deleting paintings, Artistry Avenue is your go-to destination for all things art.
 
 ## Getting Started
 

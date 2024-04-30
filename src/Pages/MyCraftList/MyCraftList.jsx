@@ -200,7 +200,7 @@ const MyCraftList = () => {
         </>
         {sorItems.length === 0 && (
           <div className="min-h-[calc(100vh-500px)] w-full font-Akshar flex flex-col items-center justify-center">
-            <Lottie className="max-w-[300px]" animationData={Nothing} />
+            <Lottie className="max-w-[300px];" animationData={Nothing} />
             <h3 className=" text-2xl text-center">
               Nothing here! <br />
               Please add your Craft and Art!
