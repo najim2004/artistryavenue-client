@@ -29,7 +29,7 @@ function App() {
             </h3>
             {late && (
               <p className="font-Akshar text-cRed mt-2">
-                If too late check your internet or reload please!
+                Too late? please check your internet or reload the page!
               </p>
             )}
           </div>
