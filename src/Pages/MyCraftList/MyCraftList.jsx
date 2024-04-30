@@ -10,6 +10,10 @@ import Swal from "sweetalert2";
 import { Fade, Zoom } from "react-awesome-reveal";
 import { Tooltip } from "react-tooltip";
 import { Helmet } from "react-helmet-async";
+
+import Lottie from "lottie-react";
+import Nothing from "/public/nothing.json";
+
 const MyCraftList = () => {
   const { themeData, headerbg, user, myItems, reRender, setReRender } =
     useContext(AuthData);
@@ -196,7 +200,8 @@ const MyCraftList = () => {
         </>
         {sorItems.length === 0 && (
           <div className="min-h-[calc(100vh-500px)] w-full font-Akshar flex flex-col items-center justify-center">
-            <h3 className="mt-[72px] text-2xl text-center">
+            <Lottie className="max-w-[300px]" animationData={Nothing} />
+            <h3 className=" text-2xl text-center">
               Nothing here! <br />
               Please add your Craft and Art!
             </h3>

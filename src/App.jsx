@@ -7,7 +7,7 @@ import { AuthData } from "./Context/AuthProvider";
 import { Typewriter } from "react-simple-typewriter";
 
 function App() {
-  const { dataLoading } = useContext(AuthData);
+  const { dataLoading, setDataLoading } = useContext(AuthData);
   const [late, setLate] = useState(false);
   useEffect(() => {
     if (dataLoading) {
@@ -28,9 +28,17 @@ function App() {
               <Typewriter loop words={["..."]} />
             </h3>
             {late && (
-              <p className="font-Akshar text-cRed mt-2">
-                Too late? please check your internet or reload the page!
-              </p>
+              <>
+                <p className="font-Akshar text-cRed mt-2">
+                  Too late? please check your internet or reload the page!
+                </p>
+                <button
+                  className="text-white p-[2px] rounded-full bg-cRed text-xs mt-3"
+                  onClick={() => setDataLoading(false)}
+                >
+                  close the loader
+                </button>
+              </>
             )}
           </div>
         </div>

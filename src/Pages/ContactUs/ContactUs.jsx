@@ -3,6 +3,9 @@ import { toast } from "react-toastify";
 import { AuthData } from "../../Context/AuthProvider";
 import { Fade, Zoom } from "react-awesome-reveal";
 import { Helmet } from "react-helmet-async";
+import Lottie from "lottie-react";
+import contactUs from "/public/contact-us.json";
+
 const ContactUs = () => {
   const { themeData, headerbg } = useContext(AuthData);
   const nameRef = useRef(null);
@@ -45,9 +48,11 @@ const ContactUs = () => {
           </div>
         </div>
 
-        <div className="grid mt-8 lg:mt-12 max-w-[1450px] px-3  mx-auto grid-cols-1 lg:grid-cols-2 gap-6 ">
-          <div className="border-cRed border-[1px] rounded-sm flex flex-col justify-center items-center text-start">
-            <div className="">
+        <div className="grid max-w-[1200px] mt-8 lg:mt-12 px-3  mx-auto grid-cols-1 lg:grid-cols-2">
+          {/* <div className=" rounded-sm flex flex-col justify-center items-center text-start"> */}
+          <Lottie className="max-w-[500px]" animationData={contactUs} />
+
+          {/* <div className="">
               <h3 className="text-2xl font-bold text-center">
                 Contact Information
               </h3>
@@ -65,11 +70,11 @@ const ContactUs = () => {
                 <span className=" font-bold">Address:</span>
                 <p className="">23 Main Street, Springfield, Illinois, 62701</p>
               </div>
-            </div>
-          </div>
+            </div> */}
+          {/* </div> */}
 
-          <div className="">
-            <div className="contact-page border-cRed border-[1px] rounded-sm p-6 w-full">
+          <div className="p-3">
+            {/* <div className="contact-page border-cRed border-[1px] rounded-sm p-6 w-full"> */}
               <h3 className="text-2xl font-semibold text-center">Message Us</h3>
               <p className="my-4 text-center">
                 Connect with us easily through our 'Contact Us' page. We're here
@@ -127,7 +132,7 @@ const ContactUs = () => {
                   Send Message
                 </button>
               </form>
-            </div>
+            {/* </div> */}
           </div>
         </div>
       </div>

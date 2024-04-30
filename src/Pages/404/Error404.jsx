@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-
+import Lottie from "lottie-react";
+import notFound from "/public/notfound.json";
 const Error404 = () => {
   return (
     <div>
       <div className="flex flex-col h-screen overflow-hidden items-center justify-center">
-        <h3 className="text-[#f0baa9] text-8xl -mt-[72px] font-bold">404</h3>
-        <p className="text-[50px] font-semibold font-Akshar text-center">
+        <Lottie className="max-w-[300px]" animationData={notFound} />;
+        <p className="lg:text-[50px] text-3xl font-semibold font-Akshar text-center">
           The Page You're Looking For Can't Found
         </p>
         <Link to={"/"}>

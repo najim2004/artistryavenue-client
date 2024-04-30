@@ -152,6 +152,7 @@ const AuthProvider = ({ children }) => {
     reRender,
     setReRender,
     reviewData,
+    setDataLoading,
     myItems,
     user,
     loading,
