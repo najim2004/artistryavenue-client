@@ -194,10 +194,12 @@ const Slider = () => {
             </div>
           </div>
         </SwiperSlide>
-        <div className="absolute h-full top-0 z-40 group-hover:flex hidden items-center justify-between lg:p-6 w-full">
+        <div className="absolute h-full top-0 z-40 group-hover:flex hidden items-center justify-between lg:p-6 left-0">
           <button className="btn bg-transparent border-none hover:bg-transparent text-5xl text-cRed shadow-none !p-0 prev-btn">
             <LuChevronLeftCircle />
           </button>
+        </div>
+        <div className="absolute h-full top-0 z-40 group-hover:flex hidden items-center justify-between lg:p-6 right-0">
           <button className="btn bg-transparent border-none hover:bg-transparent text-5xl text-cRed shadow-none !p-0 next-btn">
             <LuChevronRightCircle />
           </button>
