@@ -48,9 +48,8 @@ const Slider = () => {
                   Art Collections
                 </h3>
                 <p className="mt-[50px] max-w-[400px] leading-8 text-center lg:text-start ">
-                  Commodo ullamcorper a lacus vestibulum sed arcu non odio
-                  euismod. Suspendisse interdum consectetur libero id faucibus.
-                  Non diam phasellus vestibulum lorem sed.
+                  Capture scenic beauty with our landscape paintings, perfect
+                  for adding a touch of nature indoors.
                 </p>
                 <Link
                   className="mt-[60px]"
@@ -81,9 +80,8 @@ const Slider = () => {
                   Art Collections
                 </h3>
                 <p className="mt-[50px] max-w-[400px] leading-8 text-center lg:text-start ">
-                  Aenean et tortor at risus viverra. Velit laoreet id donec
-                  ultrices. Malesuada fames ac turpis egestas maecenas pharetra
-                  convallis posuere.
+                  Experience the richness and depth of oil paintings, showcasing
+                  timeless elegance in every stroke.
                 </p>
                 <Link
                   className="mt-[60px]"
@@ -113,8 +111,8 @@ const Slider = () => {
                   Art Collections
                 </h3>
                 <p className="mt-[50px] max-w-[400px] leading-8 text-center lg:text-start ">
-                  Facilisis leo vel fringilla est ullamcorper eget nulla. Mattis
-                  vulputate enim nulla aliquet porttitor lacus luctus.
+                  Explore vibrant watercolour artworks, bringing life and color
+                  to your walls effortlessly.
                 </p>
 
                 <Link
@@ -145,9 +143,8 @@ const Slider = () => {
                   Art Collections
                 </h3>
                 <p className="mt-[50px] max-w-[400px] leading-8 text-center lg:text-start ">
-                  Imperdiet dui accumsan sit amet nulla facilisi morbi tempus
-                  iaculis. Nulla pellentesque dignissim enim sit amet venenatis
-                  urna cursus eget. Nibh cras pulvinar mattis nunc.
+                  Explore vibrant watercolour artworks, bringing life and color
+                  to your walls effortlessly.
                 </p>
 
                 <Link
@@ -178,9 +175,8 @@ const Slider = () => {
                   Art Collections
                 </h3>
                 <p className="mt-[50px] max-w-[400px] leading-8 text-center lg:text-start ">
-                  Felis bibendum ut tristique et egestas. Molestie ac feugiat
-                  sed lectus. Eleifend mi in nulla posuere sollicitudin aliquam.
-                  Turpis egestas integer eget aliquet nibh.
+                  Discover expressive charcoal sketches, adding drama and
+                  intrigue to your art collection.
                 </p>
                 <Link
                   className="mt-[60px]"
