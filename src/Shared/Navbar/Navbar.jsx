@@ -72,10 +72,10 @@ const Navbar = () => {
   }, []);
   return (
     <div
-      className="!font-Akshar !z-50 !sticky top-0  py-4 "
+      className="!font-Akshar !z-50 !sticky top-0 "
       style={{ ...bgColor }}
     >
-      <div className="max-w-[1450px] flex justify-between items-center mx-auto">
+      <div className="max-w-[1450px] min-h-[72px] flex justify-between items-center mx-auto">
         <div className="">
           <Link
             to={"/"}
