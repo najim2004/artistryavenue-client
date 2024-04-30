@@ -21,7 +21,7 @@ const ItemByCategory = () => {
   }, [data]);
 
   return (
-    <div className="overflow-x-hidden ">
+    <div className="">
       <Helmet>
         <title>{categoryName}</title>
       </Helmet>
