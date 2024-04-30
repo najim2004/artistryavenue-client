@@ -124,7 +124,7 @@ const MyCraftList = () => {
           </details>
         </div>
         <>
-          <div className="mt-20 gap-12 grid grid-cols-1 lg:grid-cols-3">
+          <div className="mt-20 p-3 lg:p-0 gap-12 grid grid-cols-1 lg:grid-cols-3">
             {sorItems?.map((item) => (
               <div key={item?._id} className="font-Akshar">
                 <Fade>
