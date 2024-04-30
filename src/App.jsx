@@ -17,7 +17,7 @@ function App() {
     }
   }, [dataLoading]);
   return (
-    <div className="">
+    <div className="w-full">
       <Navbar></Navbar>
       {dataLoading ? (
         <div className=" h-[calc(100vh-85px)] overflow-x-hidden flex-col absolute z-50 w-full bg-white bg-opacity-60 backdrop-blur-[5px] grid place-items-center">

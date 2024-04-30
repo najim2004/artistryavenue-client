@@ -72,7 +72,7 @@ const Navbar = () => {
   }, []);
   return (
     <div
-      className="!font-Akshar !z-50 sticky overflow-hidden top-0  py-4  h-full"
+      className="!font-Akshar !z-50 !sticky top-0  py-4 "
       style={{ ...bgColor }}
     >
       <div className="max-w-[1450px] flex justify-between items-center mx-auto">
@@ -81,7 +81,7 @@ const Navbar = () => {
             to={"/"}
             className="text-xl flex items-center font-bold md:text-2xl lg:text-3xl"
           >
-            <h3 className="font-Akshar text-3xl lg:ml-0 ml-3">
+            <h3 className="font-Akshar text-3xl ml-3">
               Artistry <span className="text-cRed">Avenue</span>
             </h3>
           </Link>
@@ -144,7 +144,7 @@ const Navbar = () => {
                 )}
               </>
             )}
-            <div className="hidden lg:flex">
+            <div className="hidden mr-3 overflow-hidden lg:flex">
               <label className="swap swap-rotate">
                 {/* this hidden checkbox controls the state */}
                 <input
