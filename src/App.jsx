@@ -19,27 +19,25 @@ function App() {
   return (
     <div className="">
       <Navbar></Navbar>
-      <div className="overflow-x-hidden">
-        {dataLoading ? (
-          <div className=" h-[calc(100vh-85px)] overflow-x-hidden flex-col absolute z-50 w-full bg-white bg-opacity-60 backdrop-blur-[5px] grid place-items-center">
-            <div className="text-center">
-              <span className="loading size-[80px] text-cRed loading-infinity loading-lg"></span>
-              <h3 className="font-Akshar text-3xl">
-                Fetching Data
-                <Typewriter loop words={["..."]} />
-              </h3>
-              {late && (
-                <p className="font-Akshar text-cRed mt-2">
-                  Too late? please check your internet or reload the page!
-                </p>
-              )}
-            </div>
+      {dataLoading ? (
+        <div className=" h-[calc(100vh-85px)] overflow-x-hidden flex-col absolute z-50 w-full bg-white bg-opacity-60 backdrop-blur-[5px] grid place-items-center">
+          <div className="text-center">
+            <span className="loading size-[80px] text-cRed loading-infinity loading-lg"></span>
+            <h3 className="font-Akshar text-3xl">
+              Fetching Data
+              <Typewriter loop words={["..."]} />
+            </h3>
+            {late && (
+              <p className="font-Akshar text-cRed mt-2">
+                Too late? please check your internet or reload the page!
+              </p>
+            )}
           </div>
-        ) : (
-          <Outlet />
-        )}
-        <Footer></Footer>
-      </div>
+        </div>
+      ) : (
+        <Outlet />
+      )}
+      <Footer></Footer>
       <ToastContainer />
     </div>
   );
