@@ -17,7 +17,7 @@ function App() {
     }
   }, [dataLoading]);
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Navbar></Navbar>
       {dataLoading ? (
         <div className=" h-[calc(100vh-85px)] overflow-x-hidden flex-col absolute z-50 w-full bg-white bg-opacity-60 backdrop-blur-[5px] grid place-items-center">
@@ -39,7 +39,7 @@ function App() {
       )}
       <Footer></Footer>
       <ToastContainer />
-    </>
+    </div>
   );
 }
 

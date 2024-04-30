@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaRegCircleUser } from "react-icons/fa6";
-import logo from "../../assets/logo.png";
 import { AuthData } from "../../Context/AuthProvider";
 import { getTheme, setTheme } from "../../Utilities/localstorage";
 import { Tooltip } from "react-tooltip";
@@ -82,7 +81,9 @@ const Navbar = () => {
             to={"/"}
             className="text-xl flex items-center -mt-4 font-bold md:text-2xl lg:text-3xl"
           >
-            <h3 className="font-Akshar text-3xl">Artistry <span className="text-cRed">Avenue</span></h3>
+            <h3 className="font-Akshar text-3xl">
+              Artistry <span className="text-cRed">Avenue</span>
+            </h3>
           </Link>
         </div>
         <div className=" hidden h-full lg:flex">

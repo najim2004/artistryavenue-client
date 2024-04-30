@@ -9,8 +9,11 @@ import { Helmet } from "react-helmet-async";
 
 const ItemByCategory = () => {
   const { id } = useParams();
+
   const { data, categories, themeData, headerbg } = useContext(AuthData);
+
   const [allPost, setAllPost] = useState([]);
+
   const category = categories.find((item) => item._id === id);
   const categoryName = category?.category_name;
   useEffect(() => {
