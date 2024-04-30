@@ -79,7 +79,7 @@ const Navbar = () => {
         <div className="">
           <Link
             to={"/"}
-            className="text-xl flex items-center -mt-4 font-bold md:text-2xl lg:text-3xl"
+            className="text-xl flex items-center font-bold md:text-2xl lg:text-3xl"
           >
             <h3 className="font-Akshar text-3xl lg:ml-0 ml-3">
               Artistry <span className="text-cRed">Avenue</span>
