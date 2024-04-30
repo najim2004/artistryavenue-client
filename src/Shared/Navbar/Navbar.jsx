@@ -72,7 +72,7 @@ const Navbar = () => {
   }, []);
   return (
     <div
-      className="!font-Akshar !z-50 sticky overflow-x-hidden top-0  py-4  h-full"
+      className="!font-Akshar !z-50 sticky overflow-hidden top-0  py-4  h-full"
       style={{ ...bgColor }}
     >
       <div className="max-w-[1450px] flex justify-between items-center mx-auto">
