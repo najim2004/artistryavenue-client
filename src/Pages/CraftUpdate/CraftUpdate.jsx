@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthData } from "../../Context/AuthProvider";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import { Helmet } from "react-helmet-async";
 
 const CraftUpdate = () => {
+  const navigate = useNavigate();
   const { themeData, data, sweetAlert, setReRender, reRender } =
     useContext(AuthData);
   const { id } = useParams();
   const [oldData, setOldData] = useState({});
-
+  const [dCategory, setDCategory] = useState(oldData?.subcategory_Name);
   useEffect(() => {
     setOldData(data.find((item) => item._id === id));
   }, [data, id]);
@@ -41,6 +42,7 @@ const CraftUpdate = () => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           sweetAlert("Successfully Updated", "success", false, false, 1500);
+          navigate(-1);
           setReRender(!reRender);
         } else {
           sweetAlert("No Change Detect!", "error", false, false, 1500);
@@ -50,6 +52,7 @@ const CraftUpdate = () => {
         console.log(err);
       });
   };
+  console.log(oldData.subcategory_Name);
   return (
     <div className="min-h-screen overflow-x-hidden mt-12">
       <Helmet>
@@ -141,10 +144,10 @@ const CraftUpdate = () => {
               <br />
 
               <select
-                defaultValue={oldData?.subcategory_Name}
+                onChange={(e) => setDCategory(e.target.value)}
+                value={dCategory || ""}
                 className="h-12 w-full p-[11px] mt-4 bg-white rounded-[5px]"
                 name="subcategory_Name"
-                id=""
               >
                 <option selected disabled>
                   Category Name

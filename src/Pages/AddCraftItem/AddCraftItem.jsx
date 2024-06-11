@@ -2,11 +2,12 @@ import { useContext } from "react";
 import { AuthData } from "../../Context/AuthProvider";
 import { Fade } from "react-awesome-reveal";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md";
 const AddCraftItem = () => {
   const { themeData, user, sweetAlert, setReRender, reRender } =
     useContext(AuthData);
+  const navigate = useNavigate();
 
   const handleAddCraft = (e) => {
     e.preventDefault();
@@ -38,6 +39,7 @@ const AddCraftItem = () => {
         setReRender(!reRender);
         console.log(data);
         form.reset();
+        navigate("/my_art_&_craft_list");
       });
   };
   return (
@@ -47,7 +49,10 @@ const AddCraftItem = () => {
       </Helmet>
       <div className="max-w-[1050px] mx-3 lg:mt-10 lg:mx-auto">
         <Link to={-1}>
-          <button className="btn bg-transparent hover:bg-transparent text-cRed font-Akshar shadow-none hover:border-none border-none text-xl"><MdOutlineKeyboardDoubleArrowLeft />Back</button>
+          <button className="btn bg-transparent hover:bg-transparent text-cRed font-Akshar shadow-none hover:border-none border-none text-xl">
+            <MdOutlineKeyboardDoubleArrowLeft />
+            Back
+          </button>
         </Link>
         <div
           className="w-full  font-Akshar p-3 lg:p-10 rounded-[8px] "
@@ -133,7 +138,6 @@ const AddCraftItem = () => {
                 <select
                   className="h-12 w-full p-[11px] mt-4 bg-white rounded-[5px]"
                   name="subcategory_Name"
-                  id=""
                 >
                   <option selected disabled>
                     Category Name

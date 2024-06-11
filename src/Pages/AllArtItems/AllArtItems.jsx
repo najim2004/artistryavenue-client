@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import { TbCategory2 } from "react-icons/tb";
 
 const AllArtItems = () => {
   const { data, headerbg, themeData, admin, user, reRender, setReRender } =
@@ -91,7 +92,7 @@ const AllArtItems = () => {
       </div>
 
       <div className="max-w-[1300px] mx-3 font-Akshar overflow-scroll lg:overflow-hidden md:overflow-hidden md:mx-auto lg:mx-auto">
-        <Fade>
+        {/* <Fade>
           <table className="w-full text-start mt-12">
             <thead
               className={`text-center *:border-[1px] *:border-black h-10  !bg-opacity-50  bg-${
@@ -152,48 +153,58 @@ const AllArtItems = () => {
               ))}
             </tbody>
           </table>{" "}
-        </Fade>
-        {/* {data?.map((item) => (
-          <div key={item?._id} className="font-Akshar">
-            <div className="w-full relative  h-[450px] border-[3px] border-black p-4 rounded-sm">
-              <img
-                className="w-full h-full bg-gray-200"
-                src={item?.image}
-                alt=""
-              />
-              <p className="absolute top-5 right-0 text-white bg-opacity-80 bg-cRed p-2">
-                {item?.stockStatus}
-              </p>
-            </div>
-            <div className="px-6">
-              <h3 className="text-2xl font-Akshar font-semibold mt-3">
-                {item?.item_name}
-              </h3>
-              <h3 className="mb-3 flex items-center gap-2">
-                <TbCategory2 />
-                {item?.subcategory_Name}
-              </h3>
-              <div className="flex text-lg font-medium justify-between">
-                <p className="flex items-center gap-2">
-                  <FaStar className="text-yellow-400" />
-                  {item?.rating}
+        </Fade> */}
+        <div className="grid grid-cols-1 mt-6 lg:mt-10 lg:grid-cols-3 md:grid-cols-2 gap-6 lg:gap-12">
+          {data?.map((item) => (
+            <div key={item?._id} className="font-Akshar">
+              <div className="w-full relative  h-[450px] border-[3px] border-black p-4 rounded-sm">
+                <img
+                  className="w-full h-full bg-gray-200"
+                  src={item?.image}
+                  alt=""
+                />
+                <p className="absolute top-5 right-0 text-white bg-opacity-80 bg-cRed p-2">
+                  {item?.stockStatus}
                 </p>
-                <p className="flex items-center">
-                  <BsCurrencyDollar />
-                  {item?.Price}
-                </p>
-              </div>
-              <div className="flex justify-between items-center mt-4">
-                <p>{item?.user_name}</p>
-                <Link to={`/details/${item?._id}`}>
-                  <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white font-semibold">
-                    View Details <FaArrowTrendUp />
+                {deleteItem && (
+                  <button
+                    onClick={() => handleDelete(item?._id)}
+                    className="tn absolute bottom-5 right-5 text-white hover:bg-transparent bg-black hover:text-cRed bnt-sm text-3xl !p-0 bg-opacity-50 rounded-lg border-none"
+                  >
+                    <MdDeleteForever />
                   </button>
-                </Link>
+                )}
+              </div>
+              <div className="px-6">
+                <h3 className="text-2xl font-Akshar font-semibold mt-3">
+                  {item?.item_name}
+                </h3>
+                <h3 className="mb-3 flex items-center gap-2">
+                  <TbCategory2 />
+                  {item?.subcategory_Name}
+                </h3>
+                <div className="flex text-lg font-medium justify-between">
+                  <p className="flex items-center gap-2">
+                    <FaStar className="text-yellow-400" />
+                    {item?.rating}
+                  </p>
+                  <p className="flex items-center">
+                    <BsCurrencyDollar />
+                    {item?.Price}
+                  </p>
+                </div>
+                <div className="flex justify-between items-center mt-4">
+                  <p>{item?.user_name}</p>
+                  <Link to={`/details/${item?._id}`}>
+                    <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white font-semibold">
+                      View Details <FaArrowTrendUp />
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        ))} */}
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./Shared/Navbar/Navbar";
 import Footer from "./Shared/Footer/Footer";
 import { ToastContainer } from "react-toastify";
@@ -7,6 +7,7 @@ import { AuthData } from "./Context/AuthProvider";
 import { Typewriter } from "react-simple-typewriter";
 
 function App() {
+  const location = useLocation();
   const { dataLoading, setDataLoading } = useContext(AuthData);
   const [late, setLate] = useState(false);
   useEffect(() => {
@@ -16,6 +17,10 @@ function App() {
       setLate(false);
     }
   }, [dataLoading]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
   return (
     <div className="w-full">
       <Navbar></Navbar>
