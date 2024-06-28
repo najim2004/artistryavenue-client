@@ -82,7 +82,7 @@ const Comment = ({ id }) => {
           </button>
         </form>
 
-        <div className="flex-1">
+        <div className="flex-1 overflow-y-scroll max-h-[500px] p-3">
           <ul>
             {comments?.map((comment) => (
               <li
