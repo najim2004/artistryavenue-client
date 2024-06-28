@@ -1,31 +1,30 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthData } from "../../Context/AuthProvider";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { FaArrowTrendUp, FaStar } from "react-icons/fa6";
 import { Fade, Zoom } from "react-awesome-reveal";
-
 import { Link } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import { TbCategory2 } from "react-icons/tb";
 
+const ITEMS_PER_PAGE = 6; // Items per page
+
 const AllArtItems = () => {
   const { data, headerbg, themeData, admin, user, reRender, setReRender } =
     useContext(AuthData);
-  const [sorItems, setSortItems] = useState(data);
+  const [currentPage, setCurrentPage] = useState(0); // Current page state
+  const [sortedItems, setSortedItems] = useState([]);
   const [deleteItem, setDelete] = useState(false);
+
   useEffect(() => {
-    setSortItems(data);
+    setSortedItems(data);
   }, [data]);
 
   useEffect(() => {
-    const find = admin?.find((data) => data?.email === user?.email);
-    if (find) {
-      setDelete(true);
-    } else {
-      setDelete(false);
-    }
+    const find = admin?.find((adminUser) => adminUser?.email === user?.email);
+    setDelete(Boolean(find));
   }, [admin, user]);
 
   const handleDelete = (id) => {
@@ -45,23 +44,25 @@ const AllArtItems = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount > 0) {
               setReRender(!reRender);
-              setSortItems(sorItems.filter((item) => item._id !== id));
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success",
-              });
+              setSortedItems(sortedItems.filter((item) => item._id !== id));
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
           })
-          .catch((error) => {
-            console.log(error);
-          });
+          .catch((error) => console.error(error));
       }
     });
   };
+
+  const handlePageClick = (event) => {
+    setCurrentPage(event.selected);
+  };
+
+  const offset = currentPage * ITEMS_PER_PAGE;
+  const currentPageItems = sortedItems.slice(offset, offset + ITEMS_PER_PAGE);
+
+  const pageCount = Math.ceil(sortedItems.length / ITEMS_PER_PAGE);
 
   return (
     <div className="min-h-[calc(100vh-72px)]">
@@ -73,18 +74,18 @@ const AllArtItems = () => {
         style={{ backgroundImage: `url(${headerbg})` }}
       >
         <div
-          className={`!bg-opacity-50  bg-${
-            !themeData ? "white" : "black"
+          className={`!bg-opacity-50 bg-${
+            themeData ? "black" : "white"
           } w-full h-full flex flex-col justify-center items-center`}
         >
-          <Fade>
+          <Fade triggerOnce>
             <h3 className="font-Akshar text-3xl font-semibold">
               All Art & Craft Items
             </h3>
           </Fade>
-          <Zoom>
+          <Zoom triggerOnce>
             <p className="text-center max-w-[650px] mt-4 mx-auto">
-              showcases a diverse array of creative products, from paintings to
+              Showcasing a diverse array of creative products, from paintings to
               handmade crafts, catering to every artistic inclination.
             </p>
           </Zoom>
@@ -92,7 +93,116 @@ const AllArtItems = () => {
       </div>
 
       <div className="max-w-[1300px] mx-3 font-Akshar overflow-scroll lg:overflow-hidden md:overflow-hidden md:mx-auto lg:mx-auto">
-        {/* <Fade>
+        <div className="grid grid-cols-1 mt-6 lg:mt-10 lg:grid-cols-3 md:grid-cols-2 gap-6 lg:gap-12">
+          {currentPageItems.map((item) => (
+            <div key={item?._id} className="font-Akshar">
+              <div className="w-full relative h-[450px] border-[3px] border-black p-4 rounded-sm">
+                <img
+                  className="w-full h-full bg-gray-200 object-cover"
+                  src={item?.image}
+                  alt={item?.item_name}
+                />
+                <p className="absolute top-5 right-0 text-white bg-opacity-80 bg-cRed p-2">
+                  {item?.stockStatus}
+                </p>
+                {deleteItem && (
+                  <button
+                    onClick={() => handleDelete(item?._id)}
+                    className="absolute bottom-5 right-5 text-white hover:bg-transparent bg-black hover:text-cRed text-3xl p-0 bg-opacity-50 rounded-lg border-none"
+                  >
+                    <MdDeleteForever />
+                  </button>
+                )}
+              </div>
+              <div className="px-6">
+                <h3 className="text-2xl font-Akshar font-semibold mt-3">
+                  {item?.item_name}
+                </h3>
+                <h3 className="mb-3 flex items-center gap-2">
+                  <TbCategory2 />
+                  {item?.subcategory_Name}
+                </h3>
+                <div className="flex text-lg font-medium justify-between">
+                  <p className="flex items-center gap-2">
+                    <FaStar className="text-yellow-400" />
+                    {item?.rating}
+                  </p>
+                  <p className="flex items-center">
+                    <BsCurrencyDollar />
+                    {item?.Price}
+                  </p>
+                </div>
+                <div className="flex justify-between items-center mt-4">
+                  <p>{item?.user_name}</p>
+                  <Link to={`/details/${item?._id}`}>
+                    <button className="btn outline-none hover:bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white font-semibold flex items-center gap-2">
+                      View Details <FaArrowTrendUp />
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Pagination */}
+        <div className="flex justify-center mt-10">
+          <nav
+            className="inline-flex -space-x-px rounded-md shadow-sm"
+            aria-label="Pagination"
+          >
+            <button
+              onClick={() =>
+                handlePageClick({ selected: Math.max(currentPage - 1, 0) })
+              }
+              className={`relative inline-flex items-center px-2 py-2 text-sm font-medium rounded-l-md ${
+                currentPage === 0
+                  ? "text-gray-400 cursor-not-allowed"
+                  : "text-gray-500 hover:bg-gray-50"
+              }`}
+              disabled={currentPage === 0}
+            >
+              Previous
+            </button>
+            {Array.from({ length: pageCount }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => handlePageClick({ selected: index })}
+                className={`relative inline-flex items-center px-4 py-2 text-sm font-medium ${
+                  currentPage === index
+                    ? "z-10 bg-cRed text-white"
+                    : "text-gray-500 hover:bg-gray-50"
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+            <button
+              onClick={() =>
+                handlePageClick({
+                  selected: Math.min(currentPage + 1, pageCount - 1),
+                })
+              }
+              className={`relative inline-flex items-center px-2 py-2 text-sm font-medium rounded-r-md ${
+                currentPage === pageCount - 1
+                  ? "text-gray-400 cursor-not-allowed"
+                  : "text-gray-500 hover:bg-gray-50"
+              }`}
+              disabled={currentPage === pageCount - 1}
+            >
+              Next
+            </button>
+          </nav>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AllArtItems;
+
+{
+  /* <Fade>
           <table className="w-full text-start mt-12">
             <thead
               className={`text-center *:border-[1px] *:border-black h-10  !bg-opacity-50  bg-${
@@ -153,61 +263,5 @@ const AllArtItems = () => {
               ))}
             </tbody>
           </table>{" "}
-        </Fade> */}
-        <div className="grid grid-cols-1 mt-6 lg:mt-10 lg:grid-cols-3 md:grid-cols-2 gap-6 lg:gap-12">
-          {data?.map((item) => (
-            <div key={item?._id} className="font-Akshar">
-              <div className="w-full relative  h-[450px] border-[3px] border-black p-4 rounded-sm">
-                <img
-                  className="w-full h-full bg-gray-200"
-                  src={item?.image}
-                  alt=""
-                />
-                <p className="absolute top-5 right-0 text-white bg-opacity-80 bg-cRed p-2">
-                  {item?.stockStatus}
-                </p>
-                {deleteItem && (
-                  <button
-                    onClick={() => handleDelete(item?._id)}
-                    className="tn absolute bottom-5 right-5 text-white hover:bg-transparent bg-black hover:text-cRed bnt-sm text-3xl !p-0 bg-opacity-50 rounded-lg border-none"
-                  >
-                    <MdDeleteForever />
-                  </button>
-                )}
-              </div>
-              <div className="px-6">
-                <h3 className="text-2xl font-Akshar font-semibold mt-3">
-                  {item?.item_name}
-                </h3>
-                <h3 className="mb-3 flex items-center gap-2">
-                  <TbCategory2 />
-                  {item?.subcategory_Name}
-                </h3>
-                <div className="flex text-lg font-medium justify-between">
-                  <p className="flex items-center gap-2">
-                    <FaStar className="text-yellow-400" />
-                    {item?.rating}
-                  </p>
-                  <p className="flex items-center">
-                    <BsCurrencyDollar />
-                    {item?.Price}
-                  </p>
-                </div>
-                <div className="flex justify-between items-center mt-4">
-                  <p>{item?.user_name}</p>
-                  <Link to={`/details/${item?._id}`}>
-                    <button className="btn outline-none hover:!bg-transparent hover:border-[2px] hover:text-cRed hover:border-cRed bg-cRed rounded-[5px] text-white font-semibold">
-                      View Details <FaArrowTrendUp />
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default AllArtItems;
+        </Fade> */
+}

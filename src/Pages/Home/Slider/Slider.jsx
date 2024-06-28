@@ -17,7 +17,7 @@ import { LuChevronLeftCircle, LuChevronRightCircle } from "react-icons/lu";
 const Slider = () => {
   const { themeData } = useContext(AuthData);
   return (
-    <div className="h-screen overflow-x-hidden -mt-[82px] !z-0">
+    <div className="h-screen overflow-x-hidden !z-0">
       <Swiper
         navigation={{
           nextEl: ".next-btn",

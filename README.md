@@ -12,6 +12,8 @@ Welcome to Artistry Avenue, your premier destination for art and paintings!
 - **Craft List**: Users can view all of their posted paintings in one convenient location.
 - **Update and Delete Posts**: Registered users can update or delete their posted paintings.
 - **Admin Special Access**: Admins have special privileges for managing the website.
+- **Comments Section**: Users can leave comments on paintings.
+- **Pagination**: Implemented pagination for better navigation through paintings.
 
 ## NPM Packages Used
 
@@ -27,6 +29,8 @@ Welcome to Artistry Avenue, your premier destination for art and paintings!
 - **react-helmet-async**: A wrapper for asynchronous helmet usage in React.
 - **react-hook-form**: Performant, flexible and extensible forms with easy-to-use validation.
 - **react-fast-marquee**: A lightweight, fast marquee component for React.
+- **react-fast-marquee**: A lightweight, fast marquee component for React.
+- **axios**: Promise-based HTTP client for the browser and Node.js.
 
 ## Live Link
 

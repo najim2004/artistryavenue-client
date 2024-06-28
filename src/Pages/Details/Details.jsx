@@ -7,6 +7,7 @@ import { FaRegHeart, FaStar } from "react-icons/fa6";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { Slide } from "react-awesome-reveal";
 import { Helmet } from "react-helmet-async";
+import Comment from "../../Component/Comment";
 const Details = () => {
   const { data, themeData, categories } = useContext(AuthData);
   const { id } = useParams();
@@ -23,7 +24,7 @@ const Details = () => {
         </title>
       </Helmet>
       <div
-        className="bg-no-repeat bg-cover h-[300px] bg-right lg:h-[400px] -mt-[82px]"
+        className="bg-no-repeat bg-cover h-[300px] bg-right lg:h-[400px]"
         style={{ backgroundImage: `url(${headerbg})` }}
       >
         <div
@@ -135,6 +136,7 @@ const Details = () => {
           </div>
         </div>
       </div>
+      {findData?._id ? <Comment id={findData?._id} /> : null}
     </div>
   );
 };
